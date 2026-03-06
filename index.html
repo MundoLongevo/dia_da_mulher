@@ -8,6 +8,7 @@
     <meta property="og:description" content="Um Manifesto Poético sobre dignidade, direitos e força feminina.">
     <meta property="og:type" content="website">
     <title>Estatuto da Mulher Brasileira - Manifesto Poético</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -145,17 +146,6 @@
             align-items: center;
             gap: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .btn-pdf {
-            background: linear-gradient(135deg, #D4AF37 0%, #C4941F 100%);
-            color: #1F3A5F;
-            font-weight: 700;
-        }
-
-        .btn-pdf:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
         }
 
         .btn-whatsapp {
@@ -376,6 +366,21 @@
         .clause-card:nth-child(3) { animation-delay: 0.3s; }
         .clause-card:nth-child(4) { animation-delay: 0.4s; }
         .clause-card:nth-child(5) { animation-delay: 0.5s; }
+
+        /* PDF Export Styles */
+        @media print {
+            body {
+                background: none;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+            .btn {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
@@ -388,14 +393,13 @@
                 <p>Um Manifesto Poético</p>
                 <div class="header-subtitle">⭐ Lei do Amor e da Dignidade ⭐</div>
                 <div class="button-group">
-                    <button class="btn btn-pdf" onclick="downloadPDF()">📥 Baixar PDF</button>
-                    <button class="btn btn-whatsapp" onclick="shareWhatsApp()">💬 Enviar WhatsApp</button>
+                    <button class="btn btn-whatsapp" onclick="shareWhatsApp()">💬 Compartilhar no WhatsApp</button>
                 </div>
             </div>
         </div>
 
         <!-- Content -->
-        <div class="content">
+        <div class="content" id="pdf-content">
             <!-- Clause 1 -->
             <div class="clause-card">
                 <div class="clause-number">1</div>
@@ -604,10 +608,6 @@
     </div>
 
     <script>
-        function downloadPDF() {
-            alert('Funcionalidade de download de PDF será implementada aqui.\nVocê pode usar ferramentas como jsPDF ou html2pdf para converter a página em PDF.');
-        }
-
         function shareWhatsApp() {
             const text = encodeURIComponent('Confira o Estatuto da Mulher Brasileira - Um Manifesto Poético sobre dignidade, direitos e força feminina! 💙');
             const url = `https://wa.me/?text=${text}`;
