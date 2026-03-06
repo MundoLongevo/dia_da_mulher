@@ -3,48 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estatuto da Mulher Brasileira</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    
-
+    <meta name="description" content="Estatuto da Mulher Brasileira - Um Manifesto Poético sobre dignidade, direitos e força feminina.">
+    <meta property="og:title" content="Estatuto da Mulher Brasileira">
+    <meta property="og:description" content="Um Manifesto Poético sobre dignidade, direitos e força feminina.">
+    <meta property="og:type" content="website">
+    <title>Estatuto da Mulher Brasileira - Manifesto Poético</title>
     <style>
-        :root {
-            --rosa-choque: #ff69b4;
-            --rosa-claro: #ffb6c1;
-            --rosa-forte: #ff1493;
-            --azul-claro: #87ceeb;
-            --azul-medio: #4682b4;
-            --azul-escuro: #1e3a8a;
-            --azul-vibrante: #0066ff;
-            --texto-escuro: #1e3a5a;
-            --texto-claro: #fff;
-            --fundo-azul-rosa: #e6f2ff;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary-color: #5B3A70;
+            --secondary-color: #1F3A5F;
+            --accent-color: #D4AF37;
+            --light-accent: #E8D5B7;
+            --dark-text: #2C3E50;
+            --light-bg: #F8F7F5;
+            --white: #FFFFFF;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
 
         body {
-            font-family: 'Lato', sans-serif;
-            color: var(--texto-escuro);
-            line-height: 1.6;
-            background: linear-gradient(-45deg, #ff69b4, #ff1493, #0066ff, #87ceeb);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            overflow-x: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: var(--dark-text);
+            background: linear-gradient(135deg, #1F3A5F 0%, #5B3A70 100%);
+            min-height: 100vh;
+            padding: 20px;
         }
 
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #5B3A70 0%, #1F3A5F 100%);
+            color: var(--white);
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 300px;
+            height: 300px;
+            background: rgba(212, 175, 55, 0.08);
+            border-radius: 50%;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 200px;
+            height: 200px;
+            background: rgba(212, 175, 55, 0.08);
+            border-radius: 50%;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .heart-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: inline-block;
+            animation: pulse 2s infinite;
         }
 
         @keyframes pulse {
@@ -52,762 +94,524 @@
             50% { transform: scale(1.1); }
         }
 
-        header {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 2rem;
-            color: var(--texto-claro);
-            text-shadow: 3px 3px 15px rgba(0,0,0,0.4);
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            letter-spacing: 0.5px;
         }
 
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-            animation: pulse 3s ease-in-out infinite;
-        }
-
-        .subtitle {
+        .header p {
             font-size: 1.3rem;
             font-weight: 300;
-            max-width: 600px;
-            margin-bottom: 2rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            letter-spacing: 0.3px;
         }
 
-        .author-badge {
-            background: rgba(255,255,255,0.25);
-            padding: 0.8rem 2rem;
+        .header-subtitle {
+            font-size: 1.1rem;
+            font-weight: 600;
+            background: rgba(212, 175, 55, 0.15);
+            padding: 12px 30px;
             border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 30px;
             backdrop-filter: blur(10px);
-            font-weight: 700;
-            border: 2px solid rgba(255,255,255,0.5);
+            color: var(--light-accent);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        /* Buttons */
+        .button-group {
             display: flex;
-            align-items: center;
-            gap: 10px;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
         }
 
         .btn {
-            background: linear-gradient(135deg, #ff69b4 0%, #0066ff 100%);
-            color: white;
+            padding: 14px 35px;
             border: none;
-            padding: 15px 30px;
             border-radius: 50px;
             font-size: 1rem;
-            font-weight: 700;
+            font-weight: 600;
             cursor: pointer;
-            box-shadow: 0 6px 20px rgba(0, 102, 255, 0.4);
             transition: all 0.3s ease;
+            text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            text-decoration: none;
-            margin: 10px;
-            position: relative;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
-        .btn:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 10px 30px rgba(0, 102, 255, 0.6);
+        .btn-pdf {
+            background: linear-gradient(135deg, #D4AF37 0%, #C4941F 100%);
+            color: #1F3A5F;
+            font-weight: 700;
+        }
+
+        .btn-pdf:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
         }
 
         .btn-whatsapp {
-            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            background: linear-gradient(135deg, #5B3A70 0%, #1F3A5F 100%);
+            color: var(--white);
+            border: 2px solid var(--accent-color);
         }
 
-        .header-buttons {
-            margin-top: 2rem;
-            display: flex;
-            flex-wrap: wrap;
+        .btn-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(91, 58, 112, 0.5);
+            background: linear-gradient(135deg, #1F3A5F 0%, #5B3A70 100%);
+        }
+
+        /* Content */
+        .content {
+            padding: 50px 40px;
+            background: var(--light-bg);
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .clause-card {
+            background: var(--white);
+            border-left: 5px solid var(--primary-color);
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .clause-card:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow);
+            border-left-color: var(--accent-color);
+        }
+
+        .clause-number {
+            display: inline-flex;
+            align-items: center;
             justify-content: center;
-            gap: 1rem;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--accent-color);
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 12px rgba(91, 58, 112, 0.3);
         }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-
-        .decree-card {
-            background: rgba(255, 255, 255, 0.98);
-            border-radius: 20px;
-            padding: 2.5rem;
-            margin-bottom: 3rem;
-            box-shadow: 0 15px 35px rgba(0, 102, 255, 0.2);
-            border-left: 6px solid #ff69b4;
-            position: relative;
-            page-break-inside: avoid;
-        }
-
-        .decree-card::after {
-            content: '💖';
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 2rem;
-            opacity: 0.3;
-        }
-
-        .decree-card.blue-card {
-            border-left: 6px solid #0066ff;
-            background: linear-gradient(135deg, #fff 0%, #e6f2ff 100%);
-        }
-
-        .decree-card.blue-card::after {
-            content: '💙';
-        }
-
-        .decree-card.love-card {
-            border-left: 6px solid #ff1493;
-            background: linear-gradient(135deg, #fff 0%, #ffe6f0 100%);
-        }
-
-        .decree-card.love-card::after {
-            content: '💕';
-        }
-
-        .decree-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.9rem;
-            color: #1e3a5a;
-            margin-bottom: 1.2rem;
+        .clause-card h2 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
             gap: 12px;
         }
 
-        .decree-number {
-            background: linear-gradient(135deg, #ff69b4, #0066ff);
-            color: white;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: bold;
-            font-size: 1.3rem;
-        }
-
-        .decree-content {
-            font-size: 1.1rem;
-            color: #1e3a5a;
-            text-align: justify;
-        }
-
-        .decree-content ul {
-            margin-top: 1rem;
-            margin-left: 1.5rem;
-            color: #1e3a5a;
-        }
-
-        .decree-content li {
-            margin-bottom: 0.7rem;
-        }
-
-        .clausula-petrea {
-            background: linear-gradient(135deg, #fff 0%, #ffe6f0 100%);
-            border-left: 6px solid #ff1493;
-        }
-
-        .magic-card {
-            border-left-color: #ff1493;
-            background: linear-gradient(135deg, #fff 0%, #fff0f6 100%);
-        }
-
-        .piripilim-note {
-            background: linear-gradient(135deg, #ffe6f0, #e6f2ff);
-            border: 2px dashed #ff69b4;
-            border-radius: 15px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            font-style: italic;
-            color: #1e3a5a;
-            text-align: center;
-        }
-
-        .texto-anterior-section, .autor-section {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 3rem 2rem;
-            text-align: center;
-            margin: 3rem auto;
-            border-radius: 20px;
-            max-width: 800px;
-            box-shadow: 0 10px 30px rgba(0, 102, 255, 0.2);
-            border: 3px solid #ff69b4;
-            page-break-inside: avoid;
-        }
-
-        .texto-anterior-section h3, .autor-section h3 {
-            font-family: 'Playfair Display', serif;
-            color: #1e3a5a;
+        .clause-icon {
             font-size: 1.8rem;
-            margin-bottom: 1rem;
         }
 
-        .btn-link-texto {
-            background: linear-gradient(135deg, #ff69b4, #0066ff);
-            color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 1rem;
+        .clause-card p {
+            color: var(--dark-text);
+            line-height: 1.9;
+            font-size: 1.05rem;
         }
 
-        .autor-section .cargo {
-            color: #ff69b4;
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .autor-section .email a {
-            color: #0066ff;
-            text-decoration: none;
+        .clause-card strong {
+            color: var(--secondary-color);
             font-weight: 700;
         }
 
-        footer {
-            background: linear-gradient(135deg, #1e3a8a, #0066ff);
-            color: white;
+        /* Special Clauses */
+        .special-clause {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(91, 58, 112, 0.08) 100%);
+            border: 2px solid var(--accent-color);
+            border-left: 5px solid var(--accent-color);
+        }
+
+        .special-clause h2 {
+            color: var(--secondary-color);
+        }
+
+        /* About Section */
+        .about-section {
+            background: linear-gradient(135deg, rgba(91, 58, 112, 0.1) 0%, rgba(31, 58, 95, 0.1) 100%);
+            padding: 40px;
+            border-radius: 15px;
+            margin-top: 50px;
             text-align: center;
-            padding: 2rem;
-            font-size: 0.9rem;
+            border: 1px solid rgba(212, 175, 55, 0.2);
         }
 
-        footer .author-name {
-            font-size: 1.1rem;
+        .about-section h2 {
+            color: var(--secondary-color);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .about-section .author-name {
+            font-size: 1.4rem;
             font-weight: 700;
-            margin-top: 0.5rem;
-            color: #ff69b4;
+            color: var(--primary-color);
+            margin-bottom: 10px;
         }
 
-        .icon { width: 24px; height: 24px; fill: currentColor; }
-
-        .notification {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            background: linear-gradient(135deg, #ff69b4, #0066ff);
-            color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-weight: 700;
-            transition: transform 0.3s ease;
-            z-index: 3000;
+        .about-section .author-title {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 20px;
         }
 
-        .notification.show {
-            transform: translateX(-50%) translateY(0);
+        .about-section p {
+            margin-bottom: 15px;
+            line-height: 1.8;
         }
 
-        .icon-large { width: 40px; height: 40px; }
-
-        @media (max-width: 600px) {
-            h1 { font-size: 2.5rem; }
-            .decree-card { padding: 1.5rem; }
-            .btn span { display: none; }
+        .contact-link {
+            display: inline-block;
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 25px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            transition: all 0.3s ease;
+            margin-top: 10px;
         }
 
-        img, svg { max-width: 100%; }
+        .contact-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(91, 58, 112, 0.3);
+        }
 
-        /* @media print — controla impressão e "Salvar como PDF" do browser */
-        @media print {
-            * { animation: none !important; transition: none !important; }
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #1F3A5F 0%, #5B3A70 100%);
+            color: var(--white);
+            padding: 30px 40px;
+            text-align: center;
+            font-size: 0.95rem;
+        }
 
-            body {
-                background: white !important;
-                color: #111 !important;
+        .footer p {
+            margin-bottom: 10px;
+        }
+
+        .footer-heart {
+            color: var(--accent-color);
+            margin: 0 5px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
             }
 
-            header, footer, .texto-anterior-section,
-            .autor-section, .notification, .header-buttons,
-            .btn, .btn-whatsapp, .btn-link-texto {
-                display: none !important;
+            .header p {
+                font-size: 1.1rem;
             }
 
-            .container {
-                max-width: 100%;
-                padding: 0;
-                margin: 0;
+            .content {
+                padding: 30px 20px;
             }
 
-            .print-header {
-                display: block !important;
-                text-align: center;
-                padding: 20px 0 16px;
-                border-bottom: 2px solid #1e3a5a;
-                margin-bottom: 24px;
+            .clause-card {
+                padding: 20px;
             }
 
-            .print-header h1 {
-                font-family: 'Playfair Display', serif;
-                font-size: 24px;
-                color: #1e3a5a;
-                margin: 0 0 4px;
+            .button-group {
+                flex-direction: column;
             }
 
-            .print-header p {
-                font-size: 13px;
-                color: #555;
-                margin: 0;
+            .btn {
+                width: 100%;
+                justify-content: center;
             }
 
-            .print-author {
-                display: block !important;
-                text-align: center;
-                margin-top: 32px;
-                padding-top: 16px;
-                border-top: 1px solid #ccc;
-                font-size: 12px;
-                color: #333;
-                page-break-before: always;
+            .clause-card h2 {
+                font-size: 1.2rem;
             }
 
-            .decree-card {
-                background: white !important;
-                box-shadow: none !important;
-                border: 1px solid #ccc !important;
-                border-left: 4px solid #333 !important;
-                margin-bottom: 16px !important;
-                page-break-inside: avoid;
-            }
-
-            .decree-card::after { display: none !important; }
-
-            .decree-title {
-                color: #1e3a5a !important;
-                font-size: 14px !important;
-            }
-
-            .decree-number {
-                background: #333 !important;
-                color: white !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-
-            .decree-content, .decree-content p,
-            .decree-content li, .decree-content strong {
-                color: #111 !important;
-                font-size: 12px !important;
-            }
-
-            .piripilim-note {
-                background: #f5f5f5 !important;
-                border: 1px dashed #999 !important;
-                color: #111 !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-
-            .clausula-petrea, .blue-card, .love-card, .magic-card {
-                background: white !important;
-                border-left: 4px solid #555 !important;
+            .about-section {
+                padding: 25px;
             }
         }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .clause-card {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .clause-card:nth-child(1) { animation-delay: 0.1s; }
+        .clause-card:nth-child(2) { animation-delay: 0.2s; }
+        .clause-card:nth-child(3) { animation-delay: 0.3s; }
+        .clause-card:nth-child(4) { animation-delay: 0.4s; }
+        .clause-card:nth-child(5) { animation-delay: 0.5s; }
     </style>
 </head>
 <body>
-
-    <header>
-        <h1>
-            <svg class="icon icon-large" style="vertical-align: middle; margin-right: 10px;" viewBox="0 0 24 24">
-                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-            </svg>
-            Estatuto da<br>Mulher Brasileira
-        </h1>
-        <p class="subtitle">Um Manifesto Poético</p>
-        <div class="author-badge">
-            <svg class="icon" viewBox="0 0 24 24">
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-            </svg>
-            Lei do Amor e da Dignidade
-            <svg class="icon" viewBox="0 0 24 24">
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-            </svg>
-        </div>
-        
-        <div class="header-buttons">
-            <button class="btn" onclick="downloadPDF()">
-                <svg class="icon" viewBox="0 0 24 24">
-                    <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
-                </svg>
-                <span>Baixar PDF</span>
-            </button>
-            <button class="btn btn-whatsapp" onclick="shareWhatsApp()">
-                <svg class="icon" viewBox="0 0 24 24">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                </svg>
-                <span>Enviar WhatsApp</span>
-            </button>
-        </div>
-    </header>
-
-    <div class="print-header" style="display:none;">
-        <h1>ESTATUTO DA MULHER BRASILEIRA</h1>
-        <p>Um Manifesto Poético &bull; 2026 &bull; Ricardo de Faria Barros</p>
-    </div>
-
-    <div class="container" id="manifesto-content">
-        
-        <!-- Decreto 1 -->
-        <div class="decree-card">
-            <div class="decree-title">
-                <span class="decree-number">1</span>
-                Da Soberania e Dignidade
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-content">
+                <div class="heart-icon">💙</div>
+                <h1>Estatuto da Mulher Brasileira</h1>
+                <p>Um Manifesto Poético</p>
+                <div class="header-subtitle">⭐ Lei do Amor e da Dignidade ⭐</div>
+                <div class="button-group">
+                    <button class="btn btn-pdf" onclick="downloadPDF()">📥 Baixar PDF</button>
+                    <button class="btn btn-whatsapp" onclick="shareWhatsApp()">💬 Enviar WhatsApp</button>
+                </div>
             </div>
-            <div class="decree-content">
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- Clause 1 -->
+            <div class="clause-card">
+                <div class="clause-number">1</div>
+                <h2><span class="clause-icon">👑</span> Da Soberania e Dignidade</h2>
                 <p>Fica decretado que toda mulher é um país inteiro: com rios de memória, serras de coragem e uma bandeira invisível onde se lê: dignidade. Nenhuma mulher nascerá para ser apagada — nem pelo medo, nem pelo silêncio, nem pela conveniência alheia.</p>
             </div>
-        </div>
 
-        <!-- Decreto 2 -->
-        <div class="decree-card">
-            <div class="decree-title">
-                <span class="decree-number">2</span>
-                Da Vida Inteira
-            </div>
-            <div class="decree-content">
+            <!-- Clause 2 -->
+            <div class="clause-card">
+                <div class="clause-number">2</div>
+                <h2><span class="clause-icon">🌟</span> Da Vida Inteira</h2>
                 <p>Fica decretado que o Brasil não aceitará como "normal" o que é crime e vergonha: o feminicídio. Que cada mulher viva — e viva inteira.</p>
             </div>
-        </div>
 
-        <!-- Decreto 3 -->
-        <div class="decree-card">
-            <div class="decree-title">
-                <span class="decree-number">3</span>
-                Da Prioridade Histórica
+            <!-- Clause 3 -->
+            <div class="clause-card">
+                <div class="clause-number">3</div>
+                <h2><span class="clause-icon">🤝</span> Da Prioridade Histórica</h2>
+                <p>Fica decretado que as mulheres mais vulnerabilizadas não serão deixadas por último. Mulheres negras, obesas, LGBTQIA+, indígenas, nordestinas e todas as que carregam os alvos do preconceito terão proteção real, escuta séria e justiça rápida.</p>
             </div>
-            <div class="decree-content">
-                <p>Fica decretado que as mulheres mais vulnerabilizadas não serão deixadas por último. Mulheres negras, <strong>obesas</strong>, <strong>LGBTQIA+</strong>, <strong>indígenas</strong>, nordestinas e todas as que carregam os alvos do preconceito terão proteção real, escuta séria e justiça rápida.</p>
-            </div>
-        </div>
 
-        <!-- Decreto 4 -->
-        <div class="decree-card">
-            <div class="decree-title">
-                <span class="decree-number">4</span>
-                Da Mulher com Deficiência
-            </div>
-            <div class="decree-content">
+            <!-- Clause 4 -->
+            <div class="clause-card">
+                <div class="clause-number">4</div>
+                <h2><span class="clause-icon">♿</span> Da Mulher com Deficiência</h2>
                 <p>Fica decretado que a mulher com deficiência não carrega dupla invisibilidade: ela existe, é inteira, tem desejos, projetos e voz — e não precisa da aprovação de ninguém para comprová-lo. Que o sistema de saúde, o mercado de trabalho e os espaços públicos se adaptem a ela — e não o contrário. Acessibilidade não é favor: é direito fundamental.</p>
             </div>
-        </div>
 
-        <!-- Decreto 5 -->
-        <div class="decree-card">
-            <div class="decree-title">
-                <span class="decree-number">5</span>
-                Da Extinção dos Estereótipos
-            </div>
-            <div class="decree-content">
+            <!-- Clause 5 -->
+            <div class="clause-card">
+                <div class="clause-number">5</div>
+                <h2><span class="clause-icon">✨</span> Da Extinção dos Estereótipos</h2>
                 <p>Fica extinta a frase "isso é coisa de homem". Ficam canceladas as ordens de "tenha postura" ou "se dê ao respeito". A liberdade não é falta; o julgamento alheio não é polícia. Ninguém será humilhada por existir fora de um padrão.</p>
             </div>
-        </div>
 
-        <!-- Decreto 6 -->
-        <div class="decree-card">
-            <div class="decree-title">
-                <span class="decree-number">6</span>
-                Do Consentimento e da Rua
+            <!-- Clause 6 -->
+            <div class="clause-card">
+                <div class="clause-number">6</div>
+                <h2><span class="clause-icon">🚶‍♀️</span> Do Consentimento e da Rua</h2>
+                <p>Fica decretado — e que ninguém finja não entender — que <strong>Não é Não</strong>. Roupa não é convite, pele não é permissão, corpo não é vitrine. O olhar aprenderá educação e a rua será lugar de passagem — não de caça.</p>
             </div>
-            <div class="decree-content">
-                <p>Fica decretado — e que ninguém finja não entender — que Não é Não. Roupa não é convite, pele não é permissão, corpo não é vitrine. O olhar aprenderá educação e a rua será lugar de passagem — não de caça.</p>
-            </div>
-        </div>
 
-        <!-- Decreto 7 -->
-        <div class="decree-card">
-            <div class="decree-title">
-                <span class="decree-number">7</span>
-                Do Mundo Digital
+            <!-- Clause 7 -->
+            <div class="clause-card">
+                <div class="clause-number">7</div>
+                <h2><span class="clause-icon">📱</span> Do Mundo Digital</h2>
+                <p>Fica decretado que a violência não termina onde termina a calçada. Revenge porn, stalking virtual, imagens vazadas como punição, ameaças no direct — tudo isso é crime, não é "briga de casal", não é "consequência" e jamais será "culpa dela". O celular não é território sem lei. A dignidade da mulher não tem endereço IP.</p>
             </div>
-            <div class="decree-content">
-                <p>Fica decretado que a violência não termina onde termina a calçada. <em>Revenge porn</em>, stalking virtual, imagens vazadas como punição, ameaças no direct — tudo isso é crime, não é "briga de casal", não é "consequência" e jamais será "culpa dela". O celular não é território sem lei. A dignidade da mulher não tem endereço IP.</p>
-            </div>
-        </div>
 
-        <!-- Decreto 8 -->
-        <div class="decree-card">
-            <div class="decree-title">
-                <span class="decree-number">8</span>
-                Da Humanidade e do Temperamento
-            </div>
-            <div class="decree-content">
+            <!-- Clause 8 -->
+            <div class="clause-card">
+                <div class="clause-number">8</div>
+                <h2><span class="clause-icon">💪</span> Da Humanidade e do Temperamento</h2>
                 <p>Fica decretado que toda mulher tem o direito de não ser a "menina boazinha". Tem direito a ter suas prelatices, a estar de mau humor na TPM e a frequentar qualquer roda de conversa sem ser fuzilada por olhares ou importunada.</p>
             </div>
-        </div>
 
-        <!-- Decreto 9 -->
-        <div class="decree-card">
-            <div class="decree-title">
-                <span class="decree-number">9</span>
-                Da Voz que Não Pode Ser Interrompida
+            <!-- Clause 9 -->
+            <div class="clause-card">
+                <div class="clause-number">9</div>
+                <h2><span class="clause-icon">🎤</span> Da Voz que Não Pode Ser Interrompida</h2>
+                <p>Fica decretado o fim do mansplaining — esse hábito refinado de explicar para a mulher o que ela já sabe melhor que ninguém. A ideia dela não será roubada na reunião, seu raciocínio não será cortado no meio e sua competência não precisará de chancela masculina para existir. Quando ela fala, a sala escuta.</p>
             </div>
-            <div class="decree-content">
-                <p>Fica decretado o fim do <em>mansplaining</em> — esse hábito refinado de explicar para a mulher o que ela já sabe melhor que ninguém. A ideia dela não será roubada na reunião, seu raciocínio não será cortado no meio e sua competência não precisará de chancela masculina para existir. Quando ela fala, a sala escuta.</p>
-            </div>
-        </div>
 
-        <!-- Decreto 10 -->
-        <div class="decree-card">
-            <div class="decree-title">
-                <span class="decree-number">10</span>
-                Do Fim da Mulher-Maravilha
-            </div>
-            <div class="decree-content">
+            <!-- Clause 10 -->
+            <div class="clause-card">
+                <div class="clause-number">10</div>
+                <h2><span class="clause-icon">😴</span> Do Fim da Mulher-Maravilha</h2>
                 <p>Fica proibido romantizar a <strong>sobrecarga feminina</strong> chamando opressão de "resiliência". Fica abolida a obrigação de ser heroína. Toda mulher tem direito a um sábado sem faxina e ao descanso sem o chicote da culpa.</p>
             </div>
-        </div>
 
-        <!-- Decreto 11 -->
-        <div class="decree-card">
-            <div class="decree-title">
-                <span class="decree-number">11</span>
-                Da Dor que Não Foi Acreditada
-            </div>
-            <div class="decree-content">
+            <!-- Clause 11 -->
+            <div class="clause-card">
+                <div class="clause-number">11</div>
+                <h2><span class="clause-icon">❤️‍🩹</span> Da Dor que Não Foi Acreditada</h2>
                 <p>Fica decretado que a dor da mulher não precisa de testemunha para ser real. Endometriose diagnosticada com anos de atraso, menopausa tratada como vergonha, sintomas descritos como "frescura" — tudo isso acaba. O sistema de saúde aprenderá, de uma vez por todas, a ouvir antes de minimizar. O corpo feminino não é campo de hipóteses: é território de vida.</p>
             </div>
-        </div>
 
-        <!-- Decreto 12 -->
-        <div class="decree-card">
-            <div class="decree-title">
-                <span class="decree-number">12</span>
-                Do Prazer
-            </div>
-            <div class="decree-content">
+            <!-- Clause 12 -->
+            <div class="clause-card">
+                <div class="clause-number">12</div>
+                <h2><span class="clause-icon">🌹</span> Do Prazer</h2>
                 <p>Fica decretado que o prazer feminino existe, é legítimo e não precisa de justificativa, de silêncio nem de permissão. Por séculos foi proibido, patologizado ou colocado inteiramente a serviço do outro. Acabou. Envergonhar uma mulher por desejá-lo é uma forma refinada de violência — e será tratada como tal.</p>
             </div>
-        </div>
 
-        <!-- Cláusula Pétrea -->
-        <div class="decree-card clausula-petrea">
-            <div class="decree-title">
-                <span class="decree-number" style="background: linear-gradient(135deg, #1e3a8a, #ff69b4);">CP</span>
-                Cláusula Pétrea: Da Maternidade e do Arbítrio
-            </div>
-            <div class="decree-content">
+            <!-- Special Clause - Motherhood -->
+            <div class="clause-card special-clause">
+                <div class="clause-number" style="background: linear-gradient(135deg, #5B3A70 0%, #D4AF37 100%); color: var(--white);">CP</div>
+                <h2><span class="clause-icon">👶</span> Cláusula Pétrea: Da Maternidade e do Arbítrio</h2>
                 <p>Fica decretado, de forma irrevogável, que toda mulher e mãe tem direito a condições dignas para criar seus filhos. Mas fica também decretado o seu direito de sair do papel de mãe vez por outra, para ser apenas mulher. E que o desejo de não ser mãe seja respeitado como escolha legítima: ninguém nasce com destino biológico obrigatório. E está tudo bem.</p>
             </div>
-        </div>
 
-        <!-- Cláusula Azul e Rosa -->
-        <div class="decree-card blue-card">
-            <div class="decree-title">
-                <span class="decree-number" style="background: linear-gradient(135deg, #0066ff, #87ceeb);">💙</span>
-                Cláusula Especial: Azul Também é Cor de Mulher
-            </div>
-            <div class="decree-content">
+            <!-- Special Clause - Colors -->
+            <div class="clause-card special-clause">
+                <h2><span class="clause-icon">🎨</span> Cláusula Especial: Azul Também é Cor de Mulher</h2>
                 <p><strong>Fica decretado que azul também é cor de mulher</strong>, e toda menina tem direito a brincar com as mesmas coisas dos meninos, inclusive jogar futebol na quadra perto de casa.</p>
-                <p style="margin-top: 1rem;"><strong>E o rosa é deles também</strong>, assim como os brinquedos dela! Cores não têm gênero, brincadeiras não têm dono. O que importa é a felicidade de ser criança, sem correntes de "coisa de menino" ou "coisa de menina".</p>
-                <p style="margin-top: 1rem; font-weight: 700; color: #0066ff;">💙 Azul é delas. 🌸 Rosa é deles. E tudo é de todos!</p>
+                <p style="margin-top: 15px;"><strong>E o rosa é deles também</strong>, assim como os brinquedos dela! Cores não têm gênero, brincadeiras não têm dono. O que importa é a felicidade de ser criança, sem correntes de "coisa de menino" ou "coisa de menina".</p>
+                <p style="margin-top: 15px; font-weight: 600; color: var(--secondary-color);">💙 Azul é delas. 🌸 Rosa é deles. E tudo é de todos!</p>
             </div>
-        </div>
 
-        <!-- DECRETO ESPECIAL - Relações Amorosas -->
-        <div class="decree-card love-card">
-            <div class="decree-title">
-                <span class="decree-number" style="background: linear-gradient(135deg, #ff1493, #ff69b4);">💕</span>
-                Decreto Especial: Do Fim das Relações Amorosas
+            <!-- Decree - Relationships -->
+            <div class="clause-card special-clause">
+                <h2><span class="clause-icon">💕</span> Decreto Especial: Do Fim das Relações Amorosas</h2>
+                <p>Fica decretado que em toda relação amorosa toda mulher tem direito a sair dela, sem ser ameaçada, a hora e o momento em que quiser.</p>
+                <p style="margin-top: 15px;">Não sofrerá qualquer tipo de <strong>chantagem, violência, coação ou opressão</strong>. O fim do amor não pode ser o começo do medo. O adeus não pode ser uma sentença.</p>
+                <p style="margin-top: 15px; font-weight: 600; color: var(--secondary-color);">Ir embora é direito. Ficar é escolha. E nenhuma escolha pode custar a vida.</p>
             </div>
-            <div class="decree-content">
-                <p><strong>Fica decretado que em toda relação amorosa toda mulher tem direito a sair dela, sem ser ameaçada, a hora e o momento em que quiser.</strong></p>
-                <p style="margin-top: 1rem;">Não sofrerá qualquer tipo de <strong>chantagem, violência, coação ou opressão</strong>. O fim do amor não pode ser o começo do medo. O adeus não pode ser uma sentença.</p>
-                <p style="margin-top: 1rem;"><strong>Ir embora é direito. Ficar é escolha. E nenhuma escolha pode custar a vida.</strong></p>
-            </div>
-        </div>
 
-        <!-- Decreto 13 -->
-        <div class="decree-card">
-            <div class="decree-title">
-                <span class="decree-number">13</span>
-                Da Sororidade
-            </div>
-            <div class="decree-content">
+            <!-- Clause 13 -->
+            <div class="clause-card">
+                <div class="clause-number">13</div>
+                <h2><span class="clause-icon">🤗</span> Da Sororidade</h2>
                 <p>Fica decretado que mulher que apoia mulher não é ingênua: é sábia. A amizade feminina é uma das forças mais antigas e subestimadas da história. Fica extinta a rivalidade fabricada entre elas — que serve apenas a quem quer que permaneçam divididas. Quando uma sobe, não empurra a outra para baixo: abre a porta e segura.</p>
             </div>
-        </div>
 
-        <!-- Decreto 14 -->
-        <div class="decree-card">
-            <div class="decree-title">
-                <span class="decree-number">14</span>
-                Do Trabalho e da Autonomia
-            </div>
-            <div class="decree-content">
+            <!-- Clause 14 -->
+            <div class="clause-card">
+                <div class="clause-number">14</div>
+                <h2><span class="clause-icon">💼</span> Do Trabalho e da Autonomia</h2>
                 <p>Fica decretado que trabalho igual terá salário igual. A competência não será porta de entrada para a humilhação, e o corpo da mulher nunca será pedágio para sua permanência no emprego.</p>
             </div>
-        </div>
 
-        <!-- Decreto 15 -->
-        <div class="decree-card">
-            <div class="decree-title">
-                <span class="decree-number">15</span>
-                Do Sonho Sem Peito
-            </div>
-            <div class="decree-content">
+            <!-- Clause 15 -->
+            <div class="clause-card">
+                <div class="clause-number">15</div>
+                <h2><span class="clause-icon">🚀</span> Do Sonho Sem Peito</h2>
                 <p>Fica decretado que ambição não tem gênero e liderança não tem dono. Mulher que quer poder não assusta — inspira. Nenhuma mulher precisará mais escolher entre ser respeitada e ser amada por querer ocupar o espaço que conquistou. O teto de vidro não é natural: é construção humana. E o que o ser humano construiu, o ser humano destrói.</p>
             </div>
-        </div>
 
-        <!-- Decreto 16 -->
-        <div class="decree-card">
-            <div class="decree-title">
-                <span class="decree-number">16</span>
-                Da Gestão do Lar e dos Afetos
-            </div>
-            <div class="decree-content">
+            <!-- Clause 16 -->
+            <div class="clause-card">
+                <div class="clause-number">16</div>
+                <h2><span class="clause-icon">🏠</span> Da Gestão do Lar e dos Afetos</h2>
                 <p>Fica decretado que "ajudar em casa" sai do dicionário. Não é ajuda que se fornece, é parceria, é envolvimento com o lar, numa postura de cooperação mútua. Ajuda se dá quando se quer. E a mulher no lar não precisa de caridade pra manter as coisas funcionando. A maternidade não será solidão. Lar é onde ela respira sem medo — seja com uma família barulhenta ou apenas com ela mesma e a sua paz.</p>
             </div>
-        </div>
 
-        <!-- Decreto 17 -->
-        <div class="decree-card">
-            <div class="decree-title">
-                <span class="decree-number">17</span>
-                Da "Longelescência" e do Tempo
-            </div>
-            <div class="decree-content">
+            <!-- Clause 17 -->
+            <div class="clause-card">
+                <div class="clause-number">17</div>
+                <h2><span class="clause-icon">👵</span> Da "Longelescência" e do Tempo</h2>
                 <p>Fica decretado que cabelos brancos são coroa de tempo e rugas são mapas de vida. Envelhecer é vitória. Toda mulher longeva tem direito a um desconto generoso no salão pela fidelidade de décadas e ao respeito absoluto pela sua história.</p>
             </div>
-        </div>
 
-        <!-- Cláusula Especial - Mulher Longeva -->
-        <div class="decree-card love-card">
-            <div class="decree-title">
-                <span class="decree-number" style="background: linear-gradient(135deg, #9b59b6, #ff69b4);">60+</span>
-                Cláusula Especial: Da Mulher Longeva
+            <!-- Special Clause - Longeva -->
+            <div class="clause-card special-clause">
+                <div class="clause-number" style="background: linear-gradient(135deg, #5B3A70 0%, #D4AF37 100%); color: var(--white);">60+</div>
+                <h2><span class="clause-icon">💜</span> Cláusula Especial: Da Mulher Longeva</h2>
+                <p>Fica decretado que a mulher com 60 anos ou mais não será apagada — nem da conversa, nem da tela, nem da mesa de reuniões. Ela não envelheceu: ela acumulou. Cada ano vivido é experiência que nenhum algoritmo de contratação tem competência para descartar.</p>
+                <p style="margin-top: 15px;">Fica proibido ao mercado de trabalho tratar a mulher longeva como prazo de validade vencido. Sua presença profissional não é favor — é patrimônio. Fica decretado que ela tem direito a recolocação, requalificação e reconhecimento sem ter que fingir que tem trinta anos para ser levada a sério.</p>
+                <p style="margin-top: 15px;">Fica decretado o fim da solidão estrutural — essa que não vem da ausência de gente ao redor, mas da ausência de escuta, de pertencimento, de espaço. A mulher longeva não será relegada à poltrona da sala de espera da vida. Ela ocupa centro de palco, se quiser.</p>
+                <p style="margin-top: 15px;">Fica também decretado, em caráter irrevogável e com afeto, que toda mulher longeva tem direito ao fim de semana de não-vó-filhos: sem neto para buscar, sem filho para resolver, sem agenda de todo mundo menos a dela. Um fim de semana inteiro para ser apenas ela — viajando, dormindo até tarde, assistindo ao que quiser, saindo sem dar satisfação a ninguém.</p>
+                <p style="margin-top: 15px; font-weight: 600; color: var(--secondary-color);">A Longelescência não é o fim da história. É o capítulo mais livre que ela já escreveu. 💜</p>
             </div>
-            <div class="decree-content">
-                <p>Fica decretado que a mulher com 60 anos ou mais não será apagada — nem da conversa, nem da tela, nem da mesa de reuniões. Ela não envelheceu: ela <strong>acumulou</strong>. Cada ano vivido é experiência que nenhum algoritmo de contratação tem competência para descartar.</p>
 
-                <p style="margin-top: 1rem;">Fica proibido ao mercado de trabalho tratar a mulher longeva como prazo de validade vencido. Sua presença profissional não é favor — é patrimônio. Fica decretado que ela tem direito a <strong>recolocação, requalificação e reconhecimento</strong> sem ter que fingir que tem trinta anos para ser levada a sério.</p>
-
-                <p style="margin-top: 1rem;">Fica decretado o fim da <strong>solidão estrutural</strong> — essa que não vem da ausência de gente ao redor, mas da ausência de escuta, de pertencimento, de espaço. A mulher longeva não será relegada à poltrona da sala de espera da vida. Ela ocupa centro de palco, se quiser.</p>
-
-                <p style="margin-top: 1rem;">Fica também decretado, em caráter irrevogável e com afeto, que toda mulher longeva tem direito ao <strong>fim de semana de não-vó-filhos</strong>: sem neto para buscar, sem filho para resolver, sem agenda de todo mundo menos a dela. Um fim de semana inteiro para ser apenas ela — viajando, dormindo até tarde, assistindo ao que quiser, saindo sem dar satisfação a ninguém.</p>
-
-                <p style="margin-top: 1rem; font-weight: 700; color: #9b59b6;">A Longeslescência não é o fim da história. É o capítulo mais livre que ela já escreveu. 💜</p>
-            </div>
-        </div>
-
-        <!-- Decreto 18 -->
-        <div class="decree-card">
-            <div class="decree-title">
-                <span class="decree-number">18</span>
-                Do Futuro e da Prática
-            </div>
-            <div class="decree-content">
+            <!-- Clause 18 -->
+            <div class="clause-card">
+                <div class="clause-number">18</div>
+                <h2><span class="clause-icon">🌍</span> Do Futuro e da Prática</h2>
                 <p>Este estatuto não precisa de carimbo, mas de educação e leis que funcionem. Que toda menina cresça sabendo que liberdade não é atrevimento: é direito.</p>
-                <p style="margin-top: 1rem; font-weight: 700; color: #ff69b4;">E que se cumpra. No agora. No cotidiano. Na vida real.</p>
+                <p style="margin-top: 15px;"><strong>E que se cumpra. No agora. No cotidiano. Na vida real.</strong></p>
+            </div>
+
+            <!-- Inciso 3 -->
+            <div class="clause-card special-clause">
+                <h2><span class="clause-icon">✨</span> Inciso 3: Do Pó de Pirlimpimpim</h2>
+                <p><strong>O que é o Pó de Pirlimpimpim?</strong></p>
+                <p style="margin-top: 15px;">O Pó de Pirlimpimpim é uma das criações mais encantadas da literatura brasileira. Monteiro Lobato o inventou para o Sítio do Pica-Pau Amarelo: um pó mágico que, jogado ao vento, transportava seus personagens para qualquer lugar do mundo — real ou imaginário.</p>
+                <p style="margin-top: 15px;">Lobato bebeu na fonte de Peter Pan: a Fada Sininho, de J. M. Barrie, usava seu pó de fada para fazer Wendy e os meninos voarem em direção à Terra do Nunca. Da Fada Sininho ao Sítio do Pica-Pau Amarelo, o pó atravessou o Atlântico e ganhou alma brasileira.</p>
+                <p style="margin-top: 15px;">E aqui, neste Estatuto, ele ganha um novo destino: pertence a toda mulher — porque se alguém merece um pouco de magia do lado, essa alguém é ela. 💫</p>
+                <p style="margin-top: 15px;"><strong>Toda mulher tem direito a um pó de pirlimpimpim que poderá ser usado uma vez por mês nas seguintes situações:</strong></p>
+                <div style="margin-top: 20px; padding: 20px; background: rgba(91, 58, 112, 0.05); border-radius: 10px;">
+                    <p>✨ Arrumar a cozinha com um passe de mágica</p>
+                    <p>🏝️ Passar duas horas sendo teletransportada para um lugar paradisíaco</p>
+                    <p>👗 Se perceber como a mais bela do pedaço e ir pra algum evento chique com a roupa que tem</p>
+                    <p>🚫 Se livrar de homem besta</p>
+                    <p>🍰 Perder peso comendo docinhos</p>
+                    <p>🌸 Ganhar flores ou chocolates por reconhecimentos do esforço cotidianos</p>
+                    <p>💆 Esquecer por 10 minutos todo mundo que depende dela e se cuidar</p>
+                    <p>👁️ Eliminar assediadores num piscar de olhos</p>
+                    <p>🤐 Calar a boca e o gesto de uma chefia machista</p>
+                    <p>😴 Fazer desaparecer por 5 minutos cônjuges rabugentos e reclamões</p>
+                    <p>🌙 Dormir uma noite inteira, quando tem filho bebê, e ele não acordar e amanhecer super saudável e nutrido</p>
+                    <p>💰 Achar dinheiro perdido em bolsa antiga ou naquela roupa que foi a uma festa há anos</p>
+                    <p>💫 Mudar algo na estética do corpo, e em definitivo</p>
+                    <p>🌹 Acordar querendo "mandar flores para o delegado". Entendedores, entenderão</p>
+                    <p>🎉 Não ser esquecida "num pano de guardar confetes", após um "date" bacana</p>
+                </div>
             </div>
         </div>
 
-        <!-- Inciso 3 - Pó de Pirlimpimpim -->
-        <div class="decree-card magic-card">
-            <div class="decree-title">
-                <span class="decree-number" style="background: linear-gradient(135deg, #ff1493, #0066ff);">I3</span>
-                Inciso 3: Do Pó de Pirlimpimpim
-            </div>
-            
-            <div class="piripilim-note">
-                <p><strong>✨ O que é o Pó de Pirlimpimpim?</strong></p>
-                <p>O Pó de Pirlimpimpim é uma das criações mais encantadas da literatura brasileira. <strong>Monteiro Lobato</strong> o inventou para o <em>Sítio do Pica-Pau Amarelo</em>: um pó mágico que, jogado ao vento, transportava seus personagens para qualquer lugar do mundo — real ou imaginário.</p>
-                <p style="margin-top: 0.8rem;">Lobato bebeu na fonte de <strong>Peter Pan</strong>: a <strong>Fada Sininho</strong>, de J. M. Barrie, usava seu pó de fada para fazer Wendy e os meninos voarem em direção à Terra do Nunca. Da Fada Sininho ao Sítio do Pica-Pau Amarelo, o pó atravessou o Atlântico e ganhou alma brasileira.</p>
-                <p style="margin-top: 0.8rem;">E aqui, neste Estatuto, ele ganha um novo destino: <strong>pertence a toda mulher</strong> — porque se alguém merece um pouco de magia do lado, essa alguém é ela. 💫</p>
-            </div>
-            
-            <div class="decree-content">
-                <p><strong>Toda mulher tem direito a um pó de pirlimpimpim</strong> que poderá ser usado uma vez por mês nas seguintes situações:</p>
-                <ul>
-                    <li><strong>I.3.1</strong> - ✨ Arrumar a cozinha com um passe de mágica</li>
-                    <li><strong>I.3.2</strong> - 🏝️ Passar duas horas sendo teletransportada para um lugar paradisíaco</li>
-                    <li><strong>I.3.3</strong> - 👗 Se perceber como a mais bela do pedaço e ir pra algum evento chique com a roupa que tem</li>
-                    <li><strong>I.3.4</strong> - 🚫 Se livrar de homem besta</li>
-                    <li><strong>I.3.5</strong> - 🍰 Perder peso comendo docinhos</li>
-                    <li><strong>I.3.6</strong> - 🌸 Ganhar flores ou chocolates por reconhecimentos do esforço cotidianos</li>
-                    <li><strong>I.3.7</strong> - 💆 Esquecer por 10 minutos todo mundo que depende dela e se cuidar</li>
-                    <li><strong>I.3.8</strong> - 👁️ Eliminar assediadores num piscar de olhos</li>
-                    <li><strong>I.3.9</strong> - 🤐 Calar a boca e o gesto de uma chefia machista</li>
-                    <li><strong>I.3.10</strong> - 😴 Fazer desaparecer por 5 minutos cônjuges rabugentos e reclamões</li>
-                    <li><strong>I.3.11</strong> - 🌙 Dormir uma noite inteira, quando tem filho bebê, e ele não acordar e amanhecer super saudável e nutrido</li>
-                    <li><strong>I.3.12</strong> - 💰 Achar dinheiro perdido em bolsa antiga ou naquela roupa que foi a uma festa há anos</li>
-                    <li><strong>I.3.13</strong> - 💫 Mudar algo na estética do corpo, e em definitivo</li>
-                    <li><strong>I.3.14</strong> - 🌹 Acordar querendo "mandar flores para o delegado". Entendedores, entenderão</li>
-                    <li><strong>I.3.15</strong> - 🎉 Não ser esquecida "num pano de guardar confetes", após um "date" bacana</li>
-                </ul>
-            </div>
+        <!-- About Section -->
+        <div class="about-section">
+            <h2>👤 Sobre o Autor</h2>
+            <div class="author-name">Ricardo de Faria Barros</div>
+            <div class="author-title">Psicólogo-Consultor do Programa 70+ da ANABB</div>
+            <p>Autor deste manifesto poético em homenagem às mulheres que iluminam suas vidas e transformam o mundo com sua força, coragem e dignidade.</p>
+            <a href="mailto:ricardo@animodh.com.br" class="contact-link">📧 Contato: ricardo@animodh.com.br</a>
         </div>
 
+        <!-- Footer -->
+        <div class="footer">
+            <p>© 2026 Manifesto Poético • Feito com <span class="footer-heart">💙</span> <span class="footer-heart">🌸</span> e muito respeito</p>
+            <p>Por Ricardo de Faria Barros</p>
+            <p>Psicólogo-Consultor do Programa 70+ da ANABB</p>
+            <p><a href="mailto:ricardo@animodh.com.br" style="color: var(--accent-color); text-decoration: none;">ricardo@animodh.com.br</a></p>
+        </div>
     </div>
-
-    <!-- Link Texto Anterior -->
-    <div class="texto-anterior-section">
-        <h3>📄 Leia Também</h3>
-        <p>"Não. Não é fácil ser mulher..."</p>
-        <a href="https://bodecomfarinha.blogspot.com/2019/03/nao-nao-e-facil-ser-mulher-autor.html" target="_blank" class="btn-link-texto">
-            Acessar Texto Completo
-        </a>
-    </div>
-
-    <!-- Seção do Autor -->
-    <div class="autor-section">
-        <h3>👤 Sobre o Autor</h3>
-        <p style="font-size: 1.2rem; margin-bottom: 0.5rem;"><strong>Ricardo de Faria Barros</strong></p>
-        <p class="cargo">Psicólogo-Consultor do Programa 70+ da ANABB</p>
-        <p style="color: #666; margin: 1rem 0;">Autor deste manifesto poético em homenagem às mulheres que iluminam suas vidas e transformam o mundo com sua força, coragem e dignidade.</p>
-        <p class="email">
-            📧 Contato: <a href="mailto:ricardo@animodh.com.br">ricardo@animodh.com.br</a>
-        </p>
-    </div>
-
-    <div class="print-author" style="display:none;">
-        <strong>Ricardo de Faria Barros</strong><br>
-        Psicólogo-Consultor do Programa 70+ da ANABB<br>
-        ricardo@animodh.com.br
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <p>© 2026 Manifesto Poético • Feito com 💙🌸 e muito respeito</p>
-        <p class="author-name">Por Ricardo de Faria Barros</p>
-        <p style="margin-top: 0.5rem; font-size: 0.8rem; opacity: 0.8;">Psicólogo-Consultor do Programa 70+ da ANABB</p>
-        <p style="margin-top: 0.5rem; font-size: 0.8rem; opacity: 0.8;">
-            <a href="mailto:ricardo@animodh.com.br">ricardo@animodh.com.br</a>
-        </p>
-    </footer>
-
-    <!-- Notificação -->
-    <div class="notification" id="notification">✨ Operação realizada com sucesso!</div>
 
     <script>
         function downloadPDF() {
-            window.print();
+            alert('Funcionalidade de download de PDF será implementada aqui.\nVocê pode usar ferramentas como jsPDF ou html2pdf para converter a página em PDF.');
         }
 
         function shareWhatsApp() {
-            window.location.href = `https://wa.me/?text=${encodeURIComponent('*ESTATUTO DA MULHER BRASILEIRA* 💙🌸\n\nUm Manifesto Poético\n2026\n\n✨ #EstatutoDaMulherBrasileira')}`;
-        }
-
-        function showNotification(msg) {
-            const notif = document.getElementById('notification');
-            notif.textContent = msg;
-            notif.classList.add('show');
-            setTimeout(() => notif.classList.remove('show'), 3000);
+            const text = encodeURIComponent('Confira o Estatuto da Mulher Brasileira - Um Manifesto Poético sobre dignidade, direitos e força feminina! 💙');
+            const url = `https://wa.me/?text=${text}`;
+            window.open(url, '_blank');
         }
     </script>
 </body>
