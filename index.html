@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+        <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -99,7 +99,6 @@
             gap: 10px;
         }
 
-        /* Botões */
         .btn {
             background: linear-gradient(135deg, var(--rosa-choque) 0%, var(--carmim) 100%);
             color: white;
@@ -267,7 +266,6 @@
             50% { opacity: 1; transform: scale(1.3) rotate(10deg); }
         }
 
-        /* Nota explicativa do Pó de Piripilim */
         .piripilim-note {
             background: linear-gradient(135deg, #ffe6f0, #fff0f6);
             border: 2px dashed var(--magenta);
@@ -291,7 +289,6 @@
             font-size: 2rem;
         }
 
-        /* Link do Texto Anterior */
         .texto-anterior-section {
             background: rgba(255, 255, 255, 0.95);
             padding: 3rem 2rem;
@@ -338,7 +335,6 @@
             box-shadow: 0 10px 30px rgba(150, 0, 24, 0.5);
         }
 
-        /* Seção da Constelação Familiar */
         .constelacao-section {
             background: rgba(255, 255, 255, 0.95);
             padding: 4rem 2rem;
@@ -458,7 +454,6 @@
             font-weight: 700;
         }
 
-        /* Seção do Autor */
         .autor-section {
             background: rgba(255, 255, 255, 0.95);
             padding: 3rem 2rem;
@@ -519,7 +514,6 @@
             color: var(--rosa-choque-claro);
         }
 
-        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -573,7 +567,6 @@
             font-size: 2rem;
         }
 
-        /* Notificação */
         .notification {
             position: fixed;
             bottom: 20px;
@@ -593,7 +586,6 @@
             transform: translateX(-50%) translateY(0);
         }
 
-        /* SVG Icons */
         .icon {
             width: 24px;
             height: 24px;
@@ -605,7 +597,6 @@
             height: 40px;
         }
 
-        /* Mobile */
         @media (max-width: 600px) {
             h1 { font-size: 2.5rem; }
             .decree-card { padding: 1.5rem; }
@@ -615,10 +606,39 @@
             .btn span { display: none; }
         }
 
-        /* Estilo específico para PDF */
+        /* Estilos específicos para PDF */
+        .pdf-header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #ff006e, #960018);
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .pdf-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .pdf-header p {
+            font-size: 18px;
+            font-style: italic;
+            color: white;
+        }
+
+        .pdf-year {
+            font-size: 14px;
+            margin-top: 20px;
+            color: white;
+            opacity: 0.9;
+        }
+
         .pdf-content {
-            background: white !important;
-            color: #333 !important;
+            display: none;
+            background: white;
+            color: #333;
             padding: 40px;
         }
     </style>
@@ -660,21 +680,27 @@
                 <svg class="icon" viewBox="0 0 24 24">
                     <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
                 </svg>
-                <span>Minha Constelação Familiar</span>
+                <span>Minha Constelação</span>
             </button>
         </div>
     </header>
+
+    <!-- CONTEÚDO PARA PDF (OCULTO) -->
+    <div id="pdf-content" class="pdf-content">
+        <div class="pdf-header">
+            <h1>ESTATUTO DA MULHER BRASILEIRA</h1>
+            <p>Um Manifesto Poético</p>
+            <p class="pdf-year">2026</p>
+        </div>
+        <div id="pdf-manifesto"></div>
+    </div>
 
     <div class="container" id="manifesto-content">
         
         <!-- Decreto 1 -->
         <div class="decree-card">
             <div class="decree-title">
-                <span class="decree-number">
-                    <svg class="icon" viewBox="0 0 24 24" style="width: 20px; height: 20px;">
-                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                    </svg>
-                </span>
+                <span class="decree-number">1</span>
                 Da Soberania e Dignidade
             </div>
             <div class="decree-content">
@@ -685,30 +711,22 @@
         <!-- Decreto 2 -->
         <div class="decree-card">
             <div class="decree-title">
-                <span class="decree-number">
-                    <svg class="icon" viewBox="0 0 24 24" style="width: 20px; height: 20px;">
-                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                    </svg>
-                </span>
+                <span class="decree-number">2</span>
                 Da Vida Inteira
             </div>
             <div class="decree-content">
-                <p>Fica decretado que o Brasil não aceitará como "normal" o que é crime e vergonha: o feminicídio. Que cada mulher viva — e viva inteira, plena e sem medo. E que nenhum relacionamento se torne prisão pra ela.</p>
+                <p>Fica decretado que o Brasil não aceitará como "normal" o que é crime e vergonha: o feminicídio. Que cada mulher viva — e viva inteira, plena e sem medo. Que nenhuma relação a dois que ela viva se torne prisão ou hospício.</p>
             </div>
         </div>
 
         <!-- Decreto 3 -->
         <div class="decree-card">
             <div class="decree-title">
-                <span class="decree-number">
-                    <svg class="icon" viewBox="0 0 24 24" style="width: 20px; height: 20px;">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                    </svg>
-                </span>
+                <span class="decree-number">3</span>
                 Da Prioridade Histórica
             </div>
             <div class="decree-content">
-                <p>Fica decretado que as mulheres mais vulnerabilizadas não serão deixadas por último. Mulheres negras, obesas, indígenas,   LGBTQIA+, nordestinas e todas as que carregam os alvos do preconceito terão proteção real, escuta séria e justiça rápida.</p>
+                <p>Fica decretado que as mulheres mais vulnerabilizadas serão defendidas, acolhidas, inseridas e valorizadas: negras, <strong>obesas</strong>, <strong>LGBTQIA+</strong>, <strong>indígenas</strong>, nordestinas e todas as que carregam os alvos do preconceito terão proteção real, escuta séria e justiça rápida.</p>
             </div>
         </div>
 
@@ -759,11 +777,7 @@
         <!-- Cláusula Pétrea -->
         <div class="decree-card clausula-petrea">
             <div class="decree-title">
-                <span class="decree-number" style="background: linear-gradient(135deg, #960018, #ff006e);">
-                    <svg class="icon" viewBox="0 0 24 24" style="width: 20px; height: 20px;">
-                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
-                    </svg>
-                </span>
+                <span class="decree-number" style="background: linear-gradient(135deg, #960018, #ff006e);">CP</span>
                 Cláusula Pétrea: Da Maternidade e do Arbítrio
             </div>
             <div class="decree-content">
@@ -819,34 +833,33 @@
         <!-- Insiso 3 - Pó de Piripilim -->
         <div class="decree-card magic-card">
             <div class="decree-title">
-                <span class="decree-number" style="background: linear-gradient(135deg, #ff1493, #ff006e);">✨</span>
+                <span class="decree-number" style="background: linear-gradient(135deg, #ff1493, #ff006e);">I3</span>
                 Insiso 3: Do Pó de Piripilim
             </div>
             
-            <!-- Nota Explicativa -->
             <div class="piripilim-note">
                 <p><strong>O que é o Pó de Piripilim?</strong></p>
-                <p>Uma poção mágica e imaginária, da fada Sininho de Peter Pan, e do Sitio do Picapau amarelo (Lobato), que toda mulher merece ter à disposição para usar sempre que precisar de um empurrãozinho cósmico nas situações do dia a dia. Porque a vida já é difícil o suficiente, e um pouco de magia não faz mal a ninguém! 💫</p>
+                <p>Uma poção mágica e imaginária, originária da Fada Sininho de Peter Pan, e do Sitio do Picapau Amarelo (Lobato) que toda mulher merece ter à disposição para usar sempre que precisar de um empurrãozinho cósmico nas situações do dia a dia. Porque a vida já é difícil o suficiente, e um pouco de magia não faz mal a ninguém! 💫</p>
             </div>
             
             <div class="decree-content">
                 <p><strong>Toda mulher tem direito a um pó de piripilim</strong> que poderá ser usado uma vez por mês nas seguintes situações:</p>
                 <ul>
-                    <li>✨ Arrumar a cozinha com um passe de mágica</li>
-                    <li>🏝️ Passar duas horas sendo teletransportada para um lugar paradisíaco</li>
-                    <li>👗 Se perceber como a mais bela do pedaço e ir pra algum evento chique com a roupa que tem</li>
-                    <li>🚫 Se livrar de homem besta</li>
-                    <li>🍰 Perder peso comendo docinhos</li>
-                    <li>🌸 Ganhar flores ou chocolates por reconhecimentos do esforço cotidianos</li>
-                    <li>💆 Esquecer por 10 minutos todo mundo que depende dela e se cuidar</li>
-                    <li>👁️ <strong>Eliminar assediadores num piscar de olhos</strong></li>
-                    <li>🤐 <strong>Calar a boca e o gesto de uma chefia machista</strong></li>
-                    <li>😴 <strong>Fazer desaparecer por 5 minutos cônjuges rabugentos e reclamões</strong></li>
-                    <li>🌙 <strong>Dormir uma noite inteira, quando tem filho bebê, e ele não acordar e amanhecer super saudável e nutrido</strong></li>
-                    <li>💰 <strong>Achar dinheiro perdido em bolsa antiga ou naquela roupa que foi a uma festa há anos</strong></li>
-                    <li>💫 <strong>Mudar algo na estética do corpo, e em definitivo</strong></li>
-                    <li>🌹 <strong>Acordar querendo "mandar flores para o delegado". Entendedores, entenderão</strong></li>
-                    <li>🎉 <strong>Não ser esquecida "num pano de guardar confetes", após um "date" bacana</strong></li>
+                    <li><strong>I.3.1</strong> - ✨ Arrumar a cozinha com um passe de mágica</li>
+                    <li><strong>I.3.2</strong> - 🏝️ Passar duas horas sendo teletransportada para um lugar paradisíaco</li>
+                    <li><strong>I.3.3</strong> - 👗 Se perceber como a mais bela do pedaço e ir pra algum evento chique com a roupa que tem</li>
+                    <li><strong>I.3.4</strong> - 🚫 Se livrar de homem besta</li>
+                    <li><strong>I.3.5</strong> - 🍰 Perder peso comendo docinhos</li>
+                    <li><strong>I.3.6</strong> - 🌸 Ganhar flores ou chocolates por reconhecimentos do esforço cotidianos</li>
+                    <li><strong>I.3.7</strong> - 💆 Esquecer por 10 minutos todo mundo que depende dela e se cuidar</li>
+                    <li><strong>I.3.8</strong> - 👁️ Eliminar assediadores num piscar de olhos</li>
+                    <li><strong>I.3.9</strong> - 🤐 Calar a boca e o gesto de uma chefia machista</li>
+                    <li><strong>I.3.10</strong> - 😴 Fazer desaparecer por 5 minutos cônjuges rabugentos e reclamões</li>
+                    <li><strong>I.3.11</strong> - 🌙 Dormir uma noite inteira, quando tem filho bebê, e ele não acordar e amanhecer super saudável e nutrido</li>
+                    <li><strong>I.3.12</strong> - 💰 Achar dinheiro perdido em bolsa antiga ou naquela roupa que foi a uma festa há anos</li>
+                    <li><strong>I.3.13</strong> - 💫 Mudar algo na estética do corpo, e em definitivo</li>
+                    <li><strong>I.3.14</strong> - 🌹 Acordar querendo "mandar flores para o delegado". Entendedores, entenderão</li>
+                    <li><strong>I.3.15</strong> - 🎉 Não ser esquecida "num pano de guardar confetes", após um "date" bacana</li>
                 </ul>
             </div>
         </div>
@@ -855,55 +868,30 @@
 
     <!-- Link para Texto Anterior -->
     <div class="texto-anterior-section">
-        <h3>
-            <svg class="icon icon-large" style="vertical-align: middle; margin-right: 10px;" viewBox="0 0 24 24">
-                <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
-            </svg>
-            Leia Também
-        </h3>
+        <h3>📄 Leia Também</h3>
         <p>"Não. Não é fácil ser mulher..."</p>
         <a href="https://bodecomfarinha.blogspot.com/2019/03/nao-nao-e-facil-ser-mulher-autor.html" target="_blank" class="btn-link-texto">
-            <svg class="icon" viewBox="0 0 24 24">
-                <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
-            </svg>
             Acessar Texto Completo
         </a>
     </div>
 
     <!-- Seção do Autor -->
     <div class="autor-section">
-        <h3>
-            <svg class="icon icon-large" style="vertical-align: middle; margin-right: 10px;" viewBox="0 0 24 24">
-                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-            </svg>
-            Sobre o Autor
-        </h3>
+        <h3>👤 Sobre o Autor</h3>
         <p style="font-size: 1.2rem; margin-bottom: 0.5rem;"><strong>Ricardo de Faria Barros</strong></p>
         <p class="cargo">Psicólogo-Consultor do Programa 70+ da ANABB</p>
         <p style="color: #666; margin: 1rem 0;">Autor deste manifesto poético em homenagem às mulheres que iluminam suas vidas e transformam o mundo com sua força, coragem e dignidade.</p>
         <p class="email">
-            <svg class="icon" style="vertical-align: middle; margin-right: 5px;" viewBox="0 0 24 24">
-                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-            </svg>
-            Contato: <a href="mailto:ricardo@animodh.com.br">ricardo@animodh.com.br</a>
+            📧 Contato: <a href="mailto:ricardo@animodh.com.br">ricardo@animodh.com.br</a>
         </p>
     </div>
 
     <!-- Seção Constelação Familiar Feminina -->
     <div class="constelacao-section" id="constelacao-section">
-        <h2>
-            <svg class="icon icon-large" viewBox="0 0 24 24">
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-            </svg>
-            Constelação Familiar Feminina
-            <svg class="icon icon-large" viewBox="0 0 24 24">
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-            </svg>
-        </h2>
-        <p class="constelacao-subtitle">✨ As mulheres de minha família ✨</p>
+        <h2>⭐ Constelação Familiar Feminina ⭐</h2>
+        <p class="constelacao-subtitle">✨ As mulheres que iluminam meu caminho ✨</p>
 
         <div class="constelacao-display" id="constelacao-display">
-            <!-- Constelação padrão -->
             <div class="constelacao-tag">
                 <span class="role">Avós</span>
                 <span class="name">Dulce e Maria</span>
@@ -955,13 +943,7 @@
         </div>
 
         <div class="author-signature">
-            <svg class="icon" style="vertical-align: middle;" viewBox="0 0 24 24">
-                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-            </svg>
-            Ricardo de Faria Barros
-            <svg class="icon" style="vertical-align: middle;" viewBox="0 0 24 24">
-                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-            </svg>
+            ❤️ Ricardo de Faria Barros ❤️
         </div>
     </div>
 
@@ -978,32 +960,19 @@
     <div class="modal" id="constelacaoModal">
         <div class="modal-content">
             <button class="modal-close" onclick="closeConstelacaoModal()">×</button>
-            <h2>
-                <svg class="icon" style="vertical-align: middle; margin-right: 10px;" viewBox="0 0 24 24">
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                </svg>
-                Constelação Familiar Feminina
-            </h2>
-            <p style="margin-bottom: 1.5rem; color: #666;">Personalize com as mulheres importantes da tua famiia:</p>
+            <h2>⭐ Constelação Familiar Feminina</h2>
+            <p style="margin-bottom: 1.5rem; color: #666;">Personalize com as mulheres importantes da sua família:</p>
             
             <div class="constelacao-form">
                 <div class="form-group">
-                    <label for="constelacao-texto">
-                        <svg class="icon" style="vertical-align: middle; margin-right: 5px;" viewBox="0 0 24 24">
-                            <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
-                        </svg>
-                        Suas Mulheres Especiais:
-                    </label>
+                    <label for="constelacao-texto">✏️ Suas Mulheres da Família:</label>
                     <textarea id="constelacao-texto" placeholder="Exemplo:&#10;Mãe: Maria&#10;Avó: Joana&#10;Irmã: Ana&#10;Filha: Sofia&#10;Amiga: Carla..."></textarea>
                 </div>
                 <button class="btn" onclick="saveConstelacao()" style="width: 100%; justify-content: center;">
-                    <svg class="icon" viewBox="0 0 24 24">
-                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                    </svg>
-                    Salvar Minha Constelação
+                    ✅ Salvar Minha Constelação
                 </button>
                 <button class="btn" onclick="resetConstelacao()" style="width: 100%; justify-content: center; background: linear-gradient(135deg, #999, #666); margin-top: 10px;">
-                    Restaurar Padrão
+                    🔄 Restaurar Padrão
                 </button>
             </div>
         </div>
@@ -1031,7 +1000,6 @@
                 observer.observe(card);
             });
 
-            // Carregar constelação salva
             loadConstelacao();
         });
 
@@ -1044,7 +1012,6 @@
             document.getElementById('constelacaoModal').style.display = 'none';
         }
 
-        // Fechar modal ao clicar fora
         window.onclick = function(event) {
             const modal = document.getElementById('constelacaoModal');
             if (event.target == modal) {
@@ -1052,7 +1019,6 @@
             }
         }
 
-        // Salvar constelação
         function saveConstelacao() {
             const texto = document.getElementById('constelacao-texto').value;
             if (texto.trim()) {
@@ -1065,7 +1031,6 @@
             }
         }
 
-        // Carregar constelação
         function loadConstelacao() {
             const salva = localStorage.getItem('constelacaoFamiliar');
             const display = document.getElementById('constelacao-display');
@@ -1091,67 +1056,43 @@
             }
         }
 
-        // Resetar constelação
         function resetConstelacao() {
             localStorage.removeItem('constelacaoFamiliar');
             location.reload();
         }
 
-        // Download PDF - VERSÃO CORRIGIDA
+        // PDF - VERSÃO CORRIGIDA
         function downloadPDF() {
             showNotification('📄 Gerando PDF... aguarde...');
             
-            // Criar elemento temporário para o PDF
-            const element = document.createElement('div');
-            element.className = 'pdf-content';
+            // Copiar conteúdo do manifesto para a área do PDF
+            const manifestoContent = document.getElementById('manifesto-content').innerHTML;
+            const constelacaoContent = document.getElementById('constelacao-section').innerHTML;
             
-            // Clonar o conteúdo do manifesto
-            const manifestoContent = document.getElementById('manifesto-content').cloneNode(true);
-            manifestoContent.style.opacity = '1';
-            manifestoContent.style.transform = 'none';
+            document.getElementById('pdf-manifesto').innerHTML = manifestoContent + '<div style="margin-top: 40px; page-break-before: always;">' + constelacaoContent + '</div>';
             
-            // Clonar constelação
-            const constelacaoContent = document.getElementById('constelacao-section').cloneNode(true);
+            // Mostrar temporariamente para capturar
+            const pdfContainer = document.getElementById('pdf-content');
+            pdfContainer.style.display = 'block';
             
-            // Adicionar ao elemento temporário
-            element.appendChild(manifestoContent);
-            element.appendChild(constelacaoContent);
-            
-            // Configurações do PDF
             const opt = {
-                margin: [10, 10, 10, 10],
-                filename: 'Estatuto_da_Mulher_Brasileira_' + new Date().toLocaleDateString('pt-BR').replace(/\//g, '-') + '.pdf',
+                margin: 10,
+                filename: 'Estatuto_Mulher_Brasileira_2026.pdf',
                 image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { 
-                    scale: 2, 
-                    useCORS: true,
-                    logging: false,
-                    letterRendering: true
-                },
-                jsPDF: { 
-                    unit: 'mm', 
-                    format: 'a4', 
-                    orientation: 'portrait',
-                    compress: true
-                },
-                pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+                html2canvas: { scale: 2, useCORS: true, logging: false },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
             };
 
-            // Gerar e baixar PDF
-            html2pdf()
-                .set(opt)
-                .from(element)
-                .save()
-                .then(() => {
-                    showNotification('✅ PDF baixado com sucesso!');
-                })
-                .catch((err) => {
-                    console.error('Erro ao gerar PDF:', err);
-                    showNotification('❌ Erro ao gerar PDF. Tente novamente.');
-                });
+            html2pdf().set(opt).from(pdfContainer).save().then(() => {
+                pdfContainer.style.display = 'none';
+                showNotification('✅ PDF baixado com sucesso!');
+            }).catch((err) => {
+                console.error('Erro:', err);
+                pdfContainer.style.display = 'none';
+                showNotification('❌ Erro ao gerar PDF');
+            });
         }
 
-        // Compartilhar WhatsApp
         function shareWhatsApp() {
             const constelacaoTags = document.querySelectorAll('.constelacao-tag');
             let constelacaoTexto = '*CONSTELAÇÃO FAMILIAR FEMININA* 💖\n\n';
@@ -1162,7 +1103,7 @@
                 constelacaoTexto += `🌸 ${role}: ${name}\n`;
             });
 
-            const texto = `*ESTATUTO DA MULHER BRASILEIRA* 💖\n\nUm Manifesto Poético\n\n📜 Leia o manifesto completo e conheça minha constelação familiar feminina:\n\n${constelacaoTexto}\n\n✨ "E que se cumpra. No agora. No cotidiano. Na vida real."\n\n#EstatutoDaMulherBrasileira #ManifestoPoético`;
+            const texto = `*ESTATUTO DA MULHER BRASILEIRA* 💖\n\nUm Manifesto Poético - 2026\n\n📜 Leia o manifesto completo:\n\n${constelacaoTexto}\n\n✨ "E que se cumpra. No agora. No cotidiano. Na vida real."\n\n#EstatutoDaMulherBrasileira`;
 
             const url = `https://wa.me/?text=${encodeURIComponent(texto)}`;
             window.open(url, '_blank');
@@ -1170,7 +1111,6 @@
             showNotification('📱 Abrindo WhatsApp...');
         }
 
-        // Mostrar notificação
         function showNotification(message) {
             const notification = document.getElementById('notification');
             notification.textContent = message;
