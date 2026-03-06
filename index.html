@@ -321,6 +321,8 @@
             .btn span { display: none; }
         }
 
+        img, svg { max-width: 100%; }
+
         /* PDF Styles */
         #pdf-container {
             display: none;
@@ -336,23 +338,24 @@
         #pdf-container .pdf-header {
             text-align: center;
             padding: 40px 20px;
-            background: linear-gradient(135deg, #ff69b4, #0066ff);
-            color: white;
+            background: white;
+            color: #1e3a5a;
             margin-bottom: 30px;
+            border-bottom: 3px solid #1e3a5a;
         }
 
         #pdf-container .pdf-header h1 {
             font-family: 'Playfair Display', serif;
             font-size: 32px;
             margin-bottom: 10px;
-            color: white;
+            color: #1e3a5a;
             animation: none;
         }
 
         #pdf-container .pdf-header p {
             font-size: 16px;
             font-style: italic;
-            color: white;
+            color: #333;
         }
 
         #pdf-container .pdf-content {
@@ -361,9 +364,34 @@
 
         #pdf-container .decree-card {
             box-shadow: none;
-            border: 1px solid #ddd;
+            border: 1px solid #ccc;
+            border-left: 4px solid #333;
+            background: white !important;
             margin-bottom: 20px;
             break-inside: avoid;
+        }
+
+        #pdf-container .decree-title,
+        #pdf-container .decree-content,
+        #pdf-container .decree-content p,
+        #pdf-container .decree-content li {
+            color: #111 !important;
+        }
+
+        #pdf-container .decree-number {
+            background: #333 !important;
+            color: white !important;
+        }
+
+        #pdf-container .piripilim-note {
+            background: #f5f5f5 !important;
+            border-color: #999 !important;
+            color: #111 !important;
+        }
+
+        #pdf-container .autor-section {
+            background: white !important;
+            border-color: #333 !important;
         }
 
         #pdf-container * {
@@ -637,6 +665,25 @@
             </div>
         </div>
 
+        <!-- Cláusula Especial - Mulher Longeva -->
+        <div class="decree-card love-card">
+            <div class="decree-title">
+                <span class="decree-number" style="background: linear-gradient(135deg, #9b59b6, #ff69b4);">60+</span>
+                Cláusula Especial: Da Mulher Longeva
+            </div>
+            <div class="decree-content">
+                <p>Fica decretado que a mulher com 60 anos ou mais não será apagada — nem da conversa, nem da tela, nem da mesa de reuniões. Ela não envelheceu: ela <strong>acumulou</strong>. Cada ano vivido é experiência que nenhum algoritmo de contratação tem competência para descartar.</p>
+
+                <p style="margin-top: 1rem;">Fica proibido ao mercado de trabalho tratar a mulher longeva como prazo de validade vencido. Sua presença profissional não é favor — é patrimônio. Fica decretado que ela tem direito a <strong>recolocação, requalificação e reconhecimento</strong> sem ter que fingir que tem trinta anos para ser levada a sério.</p>
+
+                <p style="margin-top: 1rem;">Fica decretado o fim da <strong>solidão estrutural</strong> — essa que não vem da ausência de gente ao redor, mas da ausência de escuta, de pertencimento, de espaço. A mulher longeva não será relegada à poltrona da sala de espera da vida. Ela ocupa centro de palco, se quiser.</p>
+
+                <p style="margin-top: 1rem;">Fica também decretado, em caráter irrevogável e com afeto, que toda mulher longeva tem direito ao <strong>fim de semana de não-vó-filhos</strong>: sem neto para buscar, sem filho para resolver, sem agenda de todo mundo menos a dela. Um fim de semana inteiro para ser apenas ela — viajando, dormindo até tarde, assistindo ao que quiser, saindo sem dar satisfação a ninguém.</p>
+
+                <p style="margin-top: 1rem; font-weight: 700; color: #9b59b6;">A Longeslescência não é o fim da história. É o capítulo mais livre que ela já escreveu. 💜</p>
+            </div>
+        </div>
+
         <!-- Decreto 18 -->
         <div class="decree-card">
             <div class="decree-title">
@@ -649,20 +696,22 @@
             </div>
         </div>
 
-        <!-- Insiso 3 - Pó de Piripilim -->
+        <!-- Inciso 3 - Pó de Pirlimpimpim -->
         <div class="decree-card magic-card">
             <div class="decree-title">
                 <span class="decree-number" style="background: linear-gradient(135deg, #ff1493, #0066ff);">I3</span>
-                Inciso 3: Do Pó de Piripilim
+                Inciso 3: Do Pó de Pirlimpimpim
             </div>
             
             <div class="piripilim-note">
-                <p><strong>O que é o Pó de Piripilim?</strong></p>
-                <p>Uma poção mágica e imaginária que toda mulher merece ter à disposição para usar sempre que precisar de um empurrãozinho cósmico nas situações do dia a dia. Porque a vida já é difícil o suficiente, e um pouco de magia não faz mal a ninguém! 💫</p>
+                <p><strong>✨ O que é o Pó de Pirlimpimpim?</strong></p>
+                <p>O Pó de Pirlimpimpim é uma das criações mais encantadas da literatura brasileira. <strong>Monteiro Lobato</strong> o inventou para o <em>Sítio do Pica-Pau Amarelo</em>: um pó mágico que, jogado ao vento, transportava seus personagens para qualquer lugar do mundo — real ou imaginário.</p>
+                <p style="margin-top: 0.8rem;">Lobato bebeu na fonte de <strong>Peter Pan</strong>: a <strong>Fada Sininho</strong>, de J. M. Barrie, usava seu pó de fada para fazer Wendy e os meninos voarem em direção à Terra do Nunca. Da Fada Sininho ao Sítio do Pica-Pau Amarelo, o pó atravessou o Atlântico e ganhou alma brasileira.</p>
+                <p style="margin-top: 0.8rem;">E aqui, neste Estatuto, ele ganha um novo destino: <strong>pertence a toda mulher</strong> — porque se alguém merece um pouco de magia do lado, essa alguém é ela. 💫</p>
             </div>
             
             <div class="decree-content">
-                <p><strong>Toda mulher tem direito a um pó de piripilim</strong> que poderá ser usado uma vez por mês nas seguintes situações:</p>
+                <p><strong>Toda mulher tem direito a um pó de pirlimpimpim</strong> que poderá ser usado uma vez por mês nas seguintes situações:</p>
                 <ul>
                     <li><strong>I.3.1</strong> - ✨ Arrumar a cozinha com um passe de mágica</li>
                     <li><strong>I.3.2</strong> - 🏝️ Passar duas horas sendo teletransportada para um lugar paradisíaco</li>
@@ -711,14 +760,14 @@
         <p class="author-name">Por Ricardo de Faria Barros</p>
         <p style="margin-top: 0.5rem; font-size: 0.8rem; opacity: 0.8;">Psicólogo-Consultor do Programa 70+ da ANABB</p>
         <p style="margin-top: 0.5rem; font-size: 0.8rem; opacity: 0.8;">
-            <a href="mailto:ricardo@animodh.com.br" style="color: #ff69b4; text-decoration: none;">ricardo@animodh.com.br</a>
+            <a href="mailto:ricardo@animodh.com.br">ricardo@animodh.com.br</a>
         </p>
     </footer>
 
     <!-- Notificação -->
     <div class="notification" id="notification">✨ Operação realizada com sucesso!</div>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         async function downloadPDF() {
             showNotification('📄 Preparando PDF...');
             
@@ -764,8 +813,7 @@
         }
 
         function shareWhatsApp() {
-            const url = `https://wa.me/?text=${encodeURIComponent('*ESTATUTO DA MULHER BRASILEIRA* 💙🌸\n\nUm Manifesto Poético\n2026\n\n✨ #EstatutoDaMulherBrasileira')}`;
-            window.open(url, '_blank');
+            window.location.href = `https://wa.me/?text=${encodeURIComponent('*ESTATUTO DA MULHER BRASILEIRA* 💙🌸\n\nUm Manifesto Poético\n2026\n\n✨ #EstatutoDaMulherBrasileira')}`;
         }
 
         function showNotification(msg) {
