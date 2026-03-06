@@ -233,7 +233,7 @@
             text-align: center;
         }
 
-        .texto-anterior-section, .autor-section, .constelacao-section {
+        .texto-anterior-section, .autor-section {
             background: rgba(255, 255, 255, 0.95);
             padding: 3rem 2rem;
             text-align: center;
@@ -245,20 +245,11 @@
             page-break-inside: avoid;
         }
 
-        .constelacao-section {
-            margin-top: 4rem;
-            border-radius: 30px 30px 0 0;
-        }
-
-        .texto-anterior-section h3, .autor-section h3, .constelacao-section h2 {
+        .texto-anterior-section h3, .autor-section h3 {
             font-family: 'Playfair Display', serif;
             color: #1e3a5a;
             font-size: 1.8rem;
             margin-bottom: 1rem;
-        }
-
-        .constelacao-section h2 {
-            font-size: 3rem;
         }
 
         .btn-link-texto {
@@ -287,47 +278,6 @@
             font-weight: 700;
         }
 
-        .constelacao-display {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1rem;
-            max-width: 800px;
-            margin: 2rem auto;
-        }
-
-        .constelacao-tag {
-            background: linear-gradient(135deg, #ff69b4, #0066ff);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 50px;
-            box-shadow: 0 5px 15px rgba(0, 102, 255, 0.3);
-            font-weight: 700;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.3rem;
-            animation: float 4s ease-in-out infinite;
-        }
-
-        .constelacao-tag:nth-child(2n) { animation-delay: 0.5s; }
-        .constelacao-tag:nth-child(3n) { animation-delay: 1s; }
-        .constelacao-tag:nth-child(4n) { animation-delay: 1.5s; }
-
-        .constelacao-tag .role {
-            font-size: 0.8rem;
-            opacity: 0.9;
-            font-weight: 300;
-        }
-
-        .author-signature {
-            margin-top: 3rem;
-            font-style: italic;
-            color: #1e3a5a;
-            font-size: 1.3rem;
-            font-weight: 700;
-        }
-
         footer {
             background: linear-gradient(135deg, #1e3a8a, #0066ff);
             color: white;
@@ -343,80 +293,7 @@
             color: #ff69b4;
         }
 
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.7);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-            padding: 2rem;
-        }
-
-        .modal-content {
-            background: white;
-            padding: 3rem;
-            border-radius: 20px;
-            max-width: 600px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-            position: relative;
-            border: 4px solid #ff69b4;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: #ff69b4;
-            color: white;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        .modal-close:hover {
-            background: #0066ff;
-            transform: rotate(90deg);
-        }
-
-        .constelacao-form {
-            max-width: 700px;
-            margin: 2rem auto;
-            background: var(--fundo-azul-rosa);
-            padding: 2rem;
-            border-radius: 20px;
-            border: 3px dashed #ff69b4;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-            text-align: left;
-        }
-
-        .form-group label {
-            display: block;
-            color: #1e3a5a;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #ff69b4;
-            border-radius: 10px;
-            font-size: 1rem;
-            min-height: 120px;
-        }
+        .icon { width: 24px; height: 24px; fill: currentColor; }
 
         .notification {
             position: fixed;
@@ -436,7 +313,6 @@
             transform: translateX(-50%) translateY(0);
         }
 
-        .icon { width: 24px; height: 24px; fill: currentColor; }
         .icon-large { width: 40px; height: 40px; }
 
         @media (max-width: 600px) {
@@ -529,12 +405,6 @@
                 </svg>
                 <span>Enviar WhatsApp</span>
             </button>
-            <button class="btn" onclick="openConstelacaoModal()" style="background: linear-gradient(135deg, #1e3a8a, #ff69b4);">
-                <svg class="icon" viewBox="0 0 24 24">
-                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                </svg>
-                <span>Minha Constelação</span>
-            </button>
         </div>
     </header>
 
@@ -580,10 +450,10 @@
         <div class="decree-card">
             <div class="decree-title">
                 <span class="decree-number">4</span>
-                Da Extinção dos Estereótipos
+                Da Mulher com Deficiência
             </div>
             <div class="decree-content">
-                <p>Fica extinta a frase "isso é coisa de homem". Ficam canceladas as ordens de "tenha postura" ou "se dê ao respeito". A liberdade não é falta; o julgamento alheio não é polícia. Ninguém será humilhada por existir fora de um padrão.</p>
+                <p>Fica decretado que a mulher com deficiência não carrega dupla invisibilidade: ela existe, é inteira, tem desejos, projetos e voz — e não precisa da aprovação de ninguém para comprová-lo. Que o sistema de saúde, o mercado de trabalho e os espaços públicos se adaptem a ela — e não o contrário. Acessibilidade não é favor: é direito fundamental.</p>
             </div>
         </div>
 
@@ -591,10 +461,10 @@
         <div class="decree-card">
             <div class="decree-title">
                 <span class="decree-number">5</span>
-                Do Consentimento e da Rua
+                Da Extinção dos Estereótipos
             </div>
             <div class="decree-content">
-                <p>Fica decretado — e que ninguém finja não entender — que Não é Não. Roupa não é convite, pele não é permissão, corpo não é vitrine. O olhar aprenderá educação e a rua será lugar de passagem — não de caça.</p>
+                <p>Fica extinta a frase "isso é coisa de homem". Ficam canceladas as ordens de "tenha postura" ou "se dê ao respeito". A liberdade não é falta; o julgamento alheio não é polícia. Ninguém será humilhada por existir fora de um padrão.</p>
             </div>
         </div>
 
@@ -602,10 +472,10 @@
         <div class="decree-card">
             <div class="decree-title">
                 <span class="decree-number">6</span>
-                Da Humanidade e do Temperamento
+                Do Consentimento e da Rua
             </div>
             <div class="decree-content">
-                <p>Fica decretado que toda mulher tem o direito de não ser a "menina boazinha". Tem direito a ter suas prelatices, a estar de mau humor na TPM e a frequentar qualquer roda de conversa sem ser fuzilada por olhares ou importunada.</p>
+                <p>Fica decretado — e que ninguém finja não entender — que Não é Não. Roupa não é convite, pele não é permissão, corpo não é vitrine. O olhar aprenderá educação e a rua será lugar de passagem — não de caça.</p>
             </div>
         </div>
 
@@ -613,10 +483,54 @@
         <div class="decree-card">
             <div class="decree-title">
                 <span class="decree-number">7</span>
+                Da Humanidade e do Temperamento
+            </div>
+            <div class="decree-content">
+                <p>Fica decretado que toda mulher tem o direito de não ser a "menina boazinha". Tem direito a ter suas prelatices, a estar de mau humor na TPM e a frequentar qualquer roda de conversa sem ser fuzilada por olhares ou importunada.</p>
+            </div>
+        </div>
+
+        <!-- Decreto 8 -->
+        <div class="decree-card">
+            <div class="decree-title">
+                <span class="decree-number">8</span>
+                Da Voz que Não Pode Ser Interrompida
+            </div>
+            <div class="decree-content">
+                <p>Fica decretado o fim do <em>mansplaining</em> — esse hábito refinado de explicar para a mulher o que ela já sabe melhor que ninguém. A ideia dela não será roubada na reunião, seu raciocínio não será cortado no meio e sua competência não precisará de chancela masculina para existir. Quando ela fala, a sala escuta.</p>
+            </div>
+        </div>
+
+        <!-- Decreto 9 -->
+        <div class="decree-card">
+            <div class="decree-title">
+                <span class="decree-number">9</span>
                 Do Fim da Mulher-Maravilha
             </div>
             <div class="decree-content">
                 <p>Fica proibido romantizar a <strong>sobrecarga feminina</strong> chamando opressão de "resiliência". Fica abolida a obrigação de ser heroína. Toda mulher tem direito a um sábado sem faxina e ao descanso sem o chicote da culpa.</p>
+            </div>
+        </div>
+
+        <!-- Decreto 10 -->
+        <div class="decree-card">
+            <div class="decree-title">
+                <span class="decree-number">10</span>
+                Da Dor que Não Foi Acreditada
+            </div>
+            <div class="decree-content">
+                <p>Fica decretado que a dor da mulher não precisa de testemunha para ser real. Endometriose diagnosticada com anos de atraso, menopausa tratada como vergonha, sintomas descritos como "frescura" — tudo isso acaba. O sistema de saúde aprenderá, de uma vez por todas, a ouvir antes de minimizar. O corpo feminino não é campo de hipóteses: é território de vida.</p>
+            </div>
+        </div>
+
+        <!-- Decreto 11 -->
+        <div class="decree-card">
+            <div class="decree-title">
+                <span class="decree-number">11</span>
+                Do Prazer
+            </div>
+            <div class="decree-content">
+                <p>Fica decretado que o prazer feminino existe, é legítimo e não precisa de justificativa, de silêncio nem de permissão. Por séculos foi proibido, patologizado ou colocado inteiramente a serviço do outro. Acabou. Envergonhar uma mulher por desejá-lo é uma forma refinada de violência — e será tratada como tal.</p>
             </div>
         </div>
 
@@ -644,7 +558,7 @@
             </div>
         </div>
 
-        <!-- NOVO DECRETO - Relações Amorosas -->
+        <!-- DECRETO ESPECIAL - Relações Amorosas -->
         <div class="decree-card love-card">
             <div class="decree-title">
                 <span class="decree-number" style="background: linear-gradient(135deg, #ff1493, #ff69b4);">💕</span>
@@ -657,10 +571,21 @@
             </div>
         </div>
 
-        <!-- Decreto 8 -->
+        <!-- Decreto 12 -->
         <div class="decree-card">
             <div class="decree-title">
-                <span class="decree-number">8</span>
+                <span class="decree-number">12</span>
+                Da Sororidade
+            </div>
+            <div class="decree-content">
+                <p>Fica decretado que mulher que apoia mulher não é ingênua: é sábia. A amizade feminina é uma das forças mais antigas e subestimadas da história. Fica extinta a rivalidade fabricada entre elas — que serve apenas a quem quer que permaneçam divididas. Quando uma sobe, não empurra a outra para baixo: abre a porta e segura.</p>
+            </div>
+        </div>
+
+        <!-- Decreto 13 -->
+        <div class="decree-card">
+            <div class="decree-title">
+                <span class="decree-number">13</span>
                 Do Trabalho e da Autonomia
             </div>
             <div class="decree-content">
@@ -668,10 +593,32 @@
             </div>
         </div>
 
-        <!-- Decreto 9 -->
+        <!-- Decreto 14 -->
         <div class="decree-card">
             <div class="decree-title">
-                <span class="decree-number">9</span>
+                <span class="decree-number">14</span>
+                Do Sonho Sem Peito
+            </div>
+            <div class="decree-content">
+                <p>Fica decretado que ambição não tem gênero e liderança não tem dono. Mulher que quer poder não assusta — inspira. Nenhuma mulher precisará mais escolher entre ser respeitada e ser amada por querer ocupar o espaço que conquistou. O teto de vidro não é natural: é construção humana. E o que o ser humano construiu, o ser humano destrói.</p>
+            </div>
+        </div>
+
+        <!-- Decreto 15 -->
+        <div class="decree-card">
+            <div class="decree-title">
+                <span class="decree-number">15</span>
+                Do Mundo Digital
+            </div>
+            <div class="decree-content">
+                <p>Fica decretado que a violência não termina onde termina a calçada. <em>Revenge porn</em>, stalking virtual, imagens vazadas como punição, ameaças no direct — tudo isso é crime, não é "briga de casal", não é "consequência" e jamais será "culpa dela". O celular não é território sem lei. A dignidade da mulher não tem endereço IP.</p>
+            </div>
+        </div>
+
+        <!-- Decreto 16 -->
+        <div class="decree-card">
+            <div class="decree-title">
+                <span class="decree-number">16</span>
                 Da "Longelescência" e do Tempo
             </div>
             <div class="decree-content">
@@ -679,10 +626,10 @@
             </div>
         </div>
 
-        <!-- Decreto 10 -->
+        <!-- Decreto 17 -->
         <div class="decree-card">
             <div class="decree-title">
-                <span class="decree-number">10</span>
+                <span class="decree-number">17</span>
                 Da Gestão do Lar e dos Afetos
             </div>
             <div class="decree-content">
@@ -690,10 +637,10 @@
             </div>
         </div>
 
-        <!-- Decreto 11 -->
+        <!-- Decreto 18 -->
         <div class="decree-card">
             <div class="decree-title">
-                <span class="decree-number">11</span>
+                <span class="decree-number">18</span>
                 Do Futuro e da Prática
             </div>
             <div class="decree-content">
@@ -737,6 +684,7 @@
         </div>
 
     </div>
+    </div>
 
     <!-- Link Texto Anterior -->
     <div class="texto-anterior-section">
@@ -758,29 +706,6 @@
         </p>
     </div>
 
-    <!-- Constelação -->
-    <div class="constelacao-section" id="constelacao-section">
-        <h2>⭐ Constelação Familiar Feminina ⭐</h2>
-        <p class="constelacao-subtitle">✨ As mulheres que iluminam meu caminho ✨</p>
-
-        <div class="constelacao-display" id="constelacao-display">
-            <div class="constelacao-tag"><span class="role">Avós</span><span class="name">Dulce e Maria</span></div>
-            <div class="constelacao-tag"><span class="role">Mãe</span><span class="name">Denise</span></div>
-            <div class="constelacao-tag"><span class="role">Irmã</span><span class="name">Andréa</span></div>
-            <div class="constelacao-tag"><span class="role">Mães dos 4 filhos</span><span class="name">Joane e Cristina</span></div>
-            <div class="constelacao-tag"><span class="role">Filha</span><span class="name">Priscila</span></div>
-            <div class="constelacao-tag"><span class="role">Netas</span><span class="name">Laís e Sofia</span></div>
-            <div class="constelacao-tag"><span class="role">Noras</span><span class="name">Andreza e Carol</span></div>
-            <div class="constelacao-tag"><span class="role">Cunhada</span><span class="name">Patrícia</span></div>
-            <div class="constelacao-tag"><span class="role">Sobrinhas</span><span class="name">Gabi e Bianca</span></div>
-            <div class="constelacao-tag"><span class="role">Avô-tio</span><span class="name">Maria Laura</span></div>
-            <div class="constelacao-tag"><span class="role">Tias Ativas</span><span class="name">Darcy, Marlene, Lourdinha e Célia</span></div>
-            <div class="constelacao-tag"><span class="role">E muitas...</span><span class="name">Primas</span></div>
-        </div>
-
-        <div class="author-signature">💙🌸 Ricardo de Faria Barros 🌸💙</div>
-    </div>
-
     <!-- Footer -->
     <footer>
         <p>© 2026 Manifesto Poético • Feito com 💙🌸 e muito respeito</p>
@@ -791,79 +716,14 @@
         </p>
     </footer>
 
-    <!-- Modal Constelação -->
-    <div class="modal" id="constelacaoModal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeConstelacaoModal()">×</button>
-            <h2>⭐ Constelação Familiar Feminina</h2>
-            <p style="margin-bottom: 1.5rem; color: #666;">Personalize com as mulheres importantes da sua vida:</p>
-            <div class="constelacao-form">
-                <div class="form-group">
-                    <label for="constelacao-texto">✏️ Suas Mulheres Especiais:</label>
-                    <textarea id="constelacao-texto" placeholder="Exemplo:&#10;Mãe: Maria&#10;Avó: Joana&#10;Irmã: Ana"></textarea>
-                </div>
-                <button class="btn" onclick="saveConstelacao()" style="width: 100%; justify-content: center;">✅ Salvar</button>
-                <button class="btn" onclick="resetConstelacao()" style="width: 100%; justify-content: center; background: linear-gradient(135deg, #999, #666); margin-top: 10px;">🔄 Restaurar</button>
-            </div>
-        </div>
-    </div>
-
     <!-- Notificação -->
     <div class="notification" id="notification">✨ Operação realizada com sucesso!</div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            loadConstelacao();
-        });
-
-        function openConstelacaoModal() { document.getElementById('constelacaoModal').style.display = 'flex'; }
-        function closeConstelacaoModal() { document.getElementById('constelacaoModal').style.display = 'none'; }
-
-        window.onclick = function(event) {
-            if (event.target == document.getElementById('constelacaoModal')) {
-                closeConstelacaoModal();
-            }
-        }
-
-        function saveConstelacao() {
-            const texto = document.getElementById('constelacao-texto').value;
-            if (texto.trim()) {
-                localStorage.setItem('constelacaoFamiliar', texto);
-                loadConstelacao();
-                closeConstelacaoModal();
-                showNotification('✨ Constelação salva!');
-            }
-        }
-
-        function loadConstelacao() {
-            const salva = localStorage.getItem('constelacaoFamiliar');
-            const display = document.getElementById('constelacao-display');
-            if (salva) {
-                display.innerHTML = '';
-                salva.split('\n').forEach(linha => {
-                    if (linha.trim()) {
-                        const partes = linha.split(':');
-                        const role = partes[0] ? partes[0].trim() : '';
-                        const name = partes[1] ? partes[1].trim() : partes[0].trim();
-                        const tag = document.createElement('div');
-                        tag.className = 'constelacao-tag';
-                        tag.innerHTML = `<span class="role">${role}</span><span class="name">${name}</span>`;
-                        display.appendChild(tag);
-                    }
-                });
-            }
-        }
-
-        function resetConstelacao() {
-            localStorage.removeItem('constelacaoFamiliar');
-            location.reload();
-        }
-
         async function downloadPDF() {
             showNotification('📄 Preparando PDF...');
             
             const pdfContainer = document.getElementById('pdf-container');
-            const constelacaoContent = document.getElementById('constelacao-section').cloneNode(true);
             const autorContent = document.querySelector('.autor-section').cloneNode(true);
             const manifestoContent = document.getElementById('manifesto-content').innerHTML;
             
@@ -877,9 +737,6 @@
                     ${manifestoContent}
                     <div style="margin-top: 40px; page-break-before: always;">
                         ${autorContent.outerHTML}
-                    </div>
-                    <div style="margin-top: 40px; page-break-before: always;">
-                        ${constelacaoContent.outerHTML}
                     </div>
                 </div>
             `;
@@ -908,21 +765,15 @@
         }
 
         function shareWhatsApp() {
-            const tags = document.querySelectorAll('.constelacao-tag');
-            let texto = '*CONSTELAÇÃO FAMILIAR FEMININA* 💙🌸\n\n';
-            tags.forEach(tag => {
-                texto += `🌸 ${tag.querySelector('.role').textContent}: ${tag.querySelector('.name').textContent}\n`;
-            });
-            const url = `https://wa.me/?text=${encodeURIComponent('*ESTATUTO DA MULHER BRASILEIRA* 💙🌸\n\n2026\n\n' + texto + '\n✨ #EstatutoDaMulherBrasileira')}`;
+            const url = `https://wa.me/?text=${encodeURIComponent('*ESTATUTO DA MULHER BRASILEIRA* 💙🌸\n\nUm Manifesto Poético\n2026\n\n✨ #EstatutoDaMulherBrasileira')}`;
             window.open(url, '_blank');
-            showNotification('📱 Abrindo WhatsApp...');
         }
 
         function showNotification(msg) {
-            const n = document.getElementById('notification');
-            n.textContent = msg;
-            n.classList.add('show');
-            setTimeout(() => n.classList.remove('show'), 3000);
+            const notif = document.getElementById('notification');
+            notif.textContent = msg;
+            notif.classList.add('show');
+            setTimeout(() => notif.classList.remove('show'), 3000);
         }
     </script>
 </body>
