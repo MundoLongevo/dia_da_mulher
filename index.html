@@ -9,7 +9,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
     <style>
         :root {
@@ -323,80 +322,100 @@
 
         img, svg { max-width: 100%; }
 
-        /* PDF Styles */
-        #pdf-container {
-            display: none;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 210mm;
-            background: white;
-            color: #333;
-            z-index: 9999;
-        }
+        /* @media print — controla impressão e "Salvar como PDF" do browser */
+        @media print {
+            * { animation: none !important; transition: none !important; }
 
-        #pdf-container .pdf-header {
-            text-align: center;
-            padding: 40px 20px;
-            background: white;
-            color: #1e3a5a;
-            margin-bottom: 30px;
-            border-bottom: 3px solid #1e3a5a;
-        }
+            body {
+                background: white !important;
+                color: #111 !important;
+            }
 
-        #pdf-container .pdf-header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 32px;
-            margin-bottom: 10px;
-            color: #1e3a5a;
-            animation: none;
-        }
+            header, footer, .texto-anterior-section,
+            .autor-section, .notification, .header-buttons,
+            .btn, .btn-whatsapp, .btn-link-texto {
+                display: none !important;
+            }
 
-        #pdf-container .pdf-header p {
-            font-size: 16px;
-            font-style: italic;
-            color: #333;
-        }
+            .container {
+                max-width: 100%;
+                padding: 0;
+                margin: 0;
+            }
 
-        #pdf-container .pdf-content {
-            padding: 20px;
-        }
+            .print-header {
+                display: block !important;
+                text-align: center;
+                padding: 20px 0 16px;
+                border-bottom: 2px solid #1e3a5a;
+                margin-bottom: 24px;
+            }
 
-        #pdf-container .decree-card {
-            box-shadow: none;
-            border: 1px solid #ccc;
-            border-left: 4px solid #333;
-            background: white !important;
-            margin-bottom: 20px;
-            break-inside: avoid;
-        }
+            .print-header h1 {
+                font-family: 'Playfair Display', serif;
+                font-size: 24px;
+                color: #1e3a5a;
+                margin: 0 0 4px;
+            }
 
-        #pdf-container .decree-title,
-        #pdf-container .decree-content,
-        #pdf-container .decree-content p,
-        #pdf-container .decree-content li {
-            color: #111 !important;
-        }
+            .print-header p {
+                font-size: 13px;
+                color: #555;
+                margin: 0;
+            }
 
-        #pdf-container .decree-number {
-            background: #333 !important;
-            color: white !important;
-        }
+            .print-author {
+                display: block !important;
+                text-align: center;
+                margin-top: 32px;
+                padding-top: 16px;
+                border-top: 1px solid #ccc;
+                font-size: 12px;
+                color: #333;
+                page-break-before: always;
+            }
 
-        #pdf-container .piripilim-note {
-            background: #f5f5f5 !important;
-            border-color: #999 !important;
-            color: #111 !important;
-        }
+            .decree-card {
+                background: white !important;
+                box-shadow: none !important;
+                border: 1px solid #ccc !important;
+                border-left: 4px solid #333 !important;
+                margin-bottom: 16px !important;
+                page-break-inside: avoid;
+            }
 
-        #pdf-container .autor-section {
-            background: white !important;
-            border-color: #333 !important;
-        }
+            .decree-card::after { display: none !important; }
 
-        #pdf-container * {
-            animation: none !important;
-            transform: none !important;
+            .decree-title {
+                color: #1e3a5a !important;
+                font-size: 14px !important;
+            }
+
+            .decree-number {
+                background: #333 !important;
+                color: white !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .decree-content, .decree-content p,
+            .decree-content li, .decree-content strong {
+                color: #111 !important;
+                font-size: 12px !important;
+            }
+
+            .piripilim-note {
+                background: #f5f5f5 !important;
+                border: 1px dashed #999 !important;
+                color: #111 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .clausula-petrea, .blue-card, .love-card, .magic-card {
+                background: white !important;
+                border-left: 4px solid #555 !important;
+            }
         }
     </style>
 </head>
@@ -436,8 +455,10 @@
         </div>
     </header>
 
-    <!-- PDF Container -->
-    <div id="pdf-container"></div>
+    <div class="print-header" style="display:none;">
+        <h1>ESTATUTO DA MULHER BRASILEIRA</h1>
+        <p>Um Manifesto Poético &bull; 2026 &bull; Ricardo de Faria Barros</p>
+    </div>
 
     <div class="container" id="manifesto-content">
         
@@ -754,6 +775,12 @@
         </p>
     </div>
 
+    <div class="print-author" style="display:none;">
+        <strong>Ricardo de Faria Barros</strong><br>
+        Psicólogo-Consultor do Programa 70+ da ANABB<br>
+        ricardo@animodh.com.br
+    </div>
+
     <!-- Footer -->
     <footer>
         <p>© 2026 Manifesto Poético • Feito com 💙🌸 e muito respeito</p>
@@ -768,76 +795,8 @@
     <div class="notification" id="notification">✨ Operação realizada com sucesso!</div>
 
     <script>
-        async function downloadPDF() {
-            showNotification('📄 Preparando PDF...');
-
-            // Build a clean off-screen wrapper with explicit inline styles
-            const wrapper = document.createElement('div');
-            wrapper.style.cssText = 'position:fixed;left:-9999px;top:0;width:794px;background:#fff;color:#111;font-family:Georgia,serif;font-size:13px;line-height:1.7;padding:0;';
-
-            // Header
-            wrapper.innerHTML = `
-                <div style="text-align:center;padding:40px 30px 30px;border-bottom:3px solid #1e3a5a;margin-bottom:30px;">
-                    <h1 style="font-size:28px;color:#1e3a5a;margin:0 0 8px;font-family:Georgia,serif;">ESTATUTO DA MULHER BRASILEIRA</h1>
-                    <p style="font-size:15px;font-style:italic;color:#444;margin:0;">Um Manifesto Poético &bull; 2026</p>
-                    <p style="font-size:12px;color:#666;margin:6px 0 0;">Ricardo de Faria Barros</p>
-                </div>
-            `;
-
-            // Clone each decree card and apply clean print styles
-            const cards = document.querySelectorAll('.decree-card');
-            cards.forEach(card => {
-                const clone = card.cloneNode(true);
-                clone.style.cssText = 'background:#fff;border:1px solid #ccc;border-left:4px solid #333;border-radius:0;box-shadow:none;padding:16px 20px;margin-bottom:18px;page-break-inside:avoid;';
-
-                // Title
-                const title = clone.querySelector('.decree-title');
-                if (title) title.style.cssText = 'font-size:15px;font-weight:bold;color:#1e3a5a;margin-bottom:10px;display:flex;align-items:center;gap:10px;';
-
-                // Number badge
-                const num = clone.querySelector('.decree-number');
-                if (num) num.style.cssText = 'background:#333;color:#fff;min-width:32px;height:32px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:bold;flex-shrink:0;';
-
-                // Content text
-                clone.querySelectorAll('.decree-content, .decree-content p, .decree-content li').forEach(el => {
-                    el.style.color = '#111';
-                    el.style.fontSize = '13px';
-                });
-
-                // Pirlimpimpim note
-                const note = clone.querySelector('.piripilim-note');
-                if (note) note.style.cssText = 'background:#f5f5f5;border:1px dashed #999;border-radius:8px;padding:12px;margin-bottom:12px;color:#111;font-style:italic;';
-
-                wrapper.appendChild(clone);
-            });
-
-            // Author section
-            const autor = document.querySelector('.autor-section').cloneNode(true);
-            autor.style.cssText = 'background:#fff;border:2px solid #1e3a5a;border-radius:8px;padding:20px;margin-top:30px;text-align:center;page-break-before:always;';
-            autor.querySelectorAll('p, h3').forEach(el => { el.style.color = '#111'; });
-            wrapper.appendChild(autor);
-
-            document.body.appendChild(wrapper);
-            await new Promise(resolve => setTimeout(resolve, 600));
-
-            const opt = {
-                margin: [12, 12, 12, 12],
-                filename: 'Estatuto_Mulher_Brasileira_2026.pdf',
-                image: { type: 'jpeg', quality: 0.97 },
-                html2canvas: { scale: 2, useCORS: true, logging: false, backgroundColor: '#ffffff', windowWidth: 794 },
-                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-                pagebreak: { mode: ['css', 'legacy'] }
-            };
-
-            try {
-                await html2pdf().set(opt).from(wrapper).save();
-                showNotification('✅ PDF baixado com sucesso!');
-            } catch (err) {
-                console.error('Erro PDF:', err);
-                showNotification('❌ Erro ao gerar PDF');
-            }
-
-            document.body.removeChild(wrapper);
+        function downloadPDF() {
+            window.print();
         }
 
         function shareWhatsApp() {
