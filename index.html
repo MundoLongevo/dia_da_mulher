@@ -1,618 +1,1062 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Estatuto da Mulher Brasileira - Um Manifesto Poético sobre dignidade, direitos e força feminina.">
-    <meta property="og:title" content="Estatuto da Mulher Brasileira">
-    <meta property="og:description" content="Um Manifesto Poético sobre dignidade, direitos e força feminina.">
-    <meta property="og:type" content="website">
-    <title>Estatuto da Mulher Brasileira - Manifesto Poético</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O Pó de Pirlimpimpim — Para quem já faz milagre todo dia</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Dancing+Script:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #c9a84c;
+    --gold-light: #f0d080;
+    --gold-pale: #fdf3d0;
+    --rose: #e8a0b0;
+    --rose-deep: #c4607a;
+    --green-fairy: #5a9e7c;
+    --green-deep: #2d5a42;
+    --cream: #fdf8ee;
+    --warm-white: #fefcf5;
+    --ink: #2a1f14;
+    --ink-soft: #4a3728;
+    --lavender: #b8a8d0;
+    --magic-blue: #7099c0;
+  }
 
-        :root {
-            --primary-color: #5B3A70;
-            --secondary-color: #1F3A5F;
-            --accent-color: #D4AF37;
-            --light-accent: #E8D5B7;
-            --dark-text: #2C3E50;
-            --light-bg: #F8F7F5;
-            --white: #FFFFFF;
-            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.8;
-            color: var(--dark-text);
-            background: linear-gradient(135deg, #1F3A5F 0%, #5B3A70 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
+  body {
+    background: var(--warm-white);
+    color: var(--ink);
+    font-family: 'Lora', serif;
+    overflow-x: hidden;
+    cursor: default;
+  }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: var(--white);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-        }
+  /* ✦ CANVAS DE ESTRELAS ✦ */
+  #fairy-canvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
 
-        /* Header */
-        .header {
-            background: linear-gradient(135deg, #5B3A70 0%, #1F3A5F 100%);
-            color: var(--white);
-            padding: 60px 40px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
+  /* ✦ HERO ✦ */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px;
+    background: radial-gradient(ellipse at 50% 0%, #3a2a5a 0%, #1a0f30 40%, #0d0820 100%);
+    overflow: hidden;
+  }
 
-        .header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 300px;
-            height: 300px;
-            background: rgba(212, 175, 55, 0.08);
-            border-radius: 50%;
-        }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 80%, rgba(90,158,124,0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.12) 0%, transparent 45%),
+      radial-gradient(ellipse at 60% 60%, rgba(184,168,208,0.08) 0%, transparent 40%);
+    pointer-events: none;
+  }
 
-        .header::after {
-            content: '';
-            position: absolute;
-            bottom: -30%;
-            left: -5%;
-            width: 200px;
-            height: 200px;
-            background: rgba(212, 175, 55, 0.08);
-            border-radius: 50%;
-        }
+  .moon {
+    position: absolute;
+    top: 8%;
+    right: 12%;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #fdf3d0, #c9a84c);
+    box-shadow: 0 0 40px rgba(201,168,76,0.4), 0 0 80px rgba(201,168,76,0.15);
+    animation: moonGlow 4s ease-in-out infinite alternate;
+  }
 
-        .header-content {
-            position: relative;
-            z-index: 1;
-        }
+  @keyframes moonGlow {
+    from { box-shadow: 0 0 40px rgba(201,168,76,0.4), 0 0 80px rgba(201,168,76,0.15); }
+    to   { box-shadow: 0 0 60px rgba(201,168,76,0.6), 0 0 120px rgba(201,168,76,0.25); }
+  }
 
-        .heart-icon {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            display: inline-block;
-            animation: pulse 2s infinite;
-        }
+  .fairy-icon {
+    font-size: 4rem;
+    animation: fairyFloat 3s ease-in-out infinite;
+    display: block;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 12px rgba(201,168,76,0.8));
+  }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
+  @keyframes fairyFloat {
+    0%, 100% { transform: translateY(0) rotate(-3deg); }
+    50% { transform: translateY(-18px) rotate(3deg); }
+  }
 
-        .header h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            letter-spacing: 0.5px;
-        }
+  .hero-tagline {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(1rem, 3vw, 1.4rem);
+    color: var(--gold-light);
+    letter-spacing: 0.08em;
+    margin-bottom: 16px;
+    opacity: 0.9;
+    animation: fadeInUp 1s ease 0.3s both;
+  }
 
-        .header p {
-            font-size: 1.3rem;
-            font-weight: 300;
-            margin-bottom: 30px;
-            opacity: 0.95;
-            letter-spacing: 0.3px;
-        }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 8vw, 6rem);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.05;
+    text-shadow: 0 0 40px rgba(201,168,76,0.4);
+    animation: fadeInUp 1s ease 0.5s both;
+  }
 
-        .header-subtitle {
-            font-size: 1.1rem;
-            font-weight: 600;
-            background: rgba(212, 175, 55, 0.15);
-            padding: 12px 30px;
-            border-radius: 50px;
-            display: inline-block;
-            margin-bottom: 30px;
-            backdrop-filter: blur(10px);
-            color: var(--light-accent);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-        }
+  .hero-title span {
+    color: var(--gold-light);
+    font-style: italic;
+  }
 
-        /* Buttons */
-        .button-group {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 30px;
-        }
+  .hero-subtitle {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    color: rgba(253,243,208,0.8);
+    margin-top: 20px;
+    max-width: 560px;
+    line-height: 1.7;
+    animation: fadeInUp 1s ease 0.8s both;
+  }
 
-        .btn {
-            padding: 14px 35px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
+  .hero-divider {
+    margin: 32px auto;
+    width: 200px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    position: relative;
+    animation: fadeInUp 1s ease 1s both;
+  }
 
-        .btn-whatsapp {
-            background: linear-gradient(135deg, #5B3A70 0%, #1F3A5F 100%);
-            color: var(--white);
-            border: 2px solid var(--accent-color);
-        }
+  .hero-divider::before {
+    content: '✦';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--gold-light);
+    font-size: 1rem;
+    background: transparent;
+    padding: 0 8px;
+  }
 
-        .btn-whatsapp:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(91, 58, 112, 0.5);
-            background: linear-gradient(135deg, #1F3A5F 0%, #5B3A70 100%);
-        }
+  .scroll-hint {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(253,243,208,0.5);
+    font-family: 'Dancing Script', cursive;
+    font-size: 1rem;
+    animation: bounce 2s ease infinite;
+  }
 
-        /* Content */
-        .content {
-            padding: 50px 40px;
-            background: var(--light-bg);
-        }
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
 
-        .section {
-            margin-bottom: 50px;
-        }
+  /* ✦ INTRO CARD ✦ */
+  .intro-section {
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(180deg, #1a0f30 0%, var(--warm-white) 100%);
+    padding: 80px 20px 60px;
+    text-align: center;
+  }
 
-        .clause-card {
-            background: var(--white);
-            border-left: 5px solid var(--primary-color);
-            padding: 30px;
-            border-radius: 12px;
-            margin-bottom: 25px;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-        }
+  .intro-card {
+    max-width: 680px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, rgba(201,168,76,0.12), rgba(90,158,124,0.08));
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 4px;
+    padding: 48px 40px;
+    position: relative;
+    box-shadow: 0 4px 40px rgba(201,168,76,0.08);
+  }
 
-        .clause-card:hover {
-            transform: translateX(5px);
-            box-shadow: var(--shadow);
-            border-left-color: var(--accent-color);
-        }
+  .intro-card::before,
+  .intro-card::after {
+    content: '✦';
+    position: absolute;
+    color: var(--gold);
+    font-size: 1.2rem;
+    opacity: 0.6;
+  }
+  .intro-card::before { top: 16px; left: 20px; }
+  .intro-card::after  { bottom: 16px; right: 20px; }
 
-        .clause-number {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: var(--accent-color);
-            border-radius: 50%;
-            font-weight: 700;
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            box-shadow: 0 4px 12px rgba(91, 58, 112, 0.3);
-        }
+  .intro-card p {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+    line-height: 1.8;
+    color: var(--ink);
+    font-style: italic;
+  }
 
-        .clause-card h2 {
-            color: var(--primary-color);
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
+  .intro-card strong {
+    color: var(--rose-deep);
+    font-style: normal;
+    font-weight: 600;
+  }
 
-        .clause-icon {
-            font-size: 1.8rem;
-        }
+  /* ✦ SECÇÕES ✦ */
+  .section {
+    position: relative;
+    z-index: 1;
+    padding: 80px 20px;
+  }
 
-        .clause-card p {
-            color: var(--dark-text);
-            line-height: 1.9;
-            font-size: 1.05rem;
-        }
+  .section-bg-cream { background: var(--cream); }
+  .section-bg-white { background: var(--warm-white); }
+  .section-bg-magic {
+    background: linear-gradient(135deg, #1a0f30 0%, #2d1a4a 50%, #1a0f30 100%);
+    color: white;
+  }
 
-        .clause-card strong {
-            color: var(--secondary-color);
-            font-weight: 700;
-        }
+  .section-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
 
-        /* Special Clauses */
-        .special-clause {
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(91, 58, 112, 0.08) 100%);
-            border: 2px solid var(--accent-color);
-            border-left: 5px solid var(--accent-color);
-        }
+  .section-label {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.1rem;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 12px;
+  }
 
-        .special-clause h2 {
-            color: var(--secondary-color);
-        }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    color: var(--ink);
+    line-height: 1.2;
+  }
 
-        /* About Section */
-        .about-section {
-            background: linear-gradient(135deg, rgba(91, 58, 112, 0.1) 0%, rgba(31, 58, 95, 0.1) 100%);
-            padding: 40px;
-            border-radius: 15px;
-            margin-top: 50px;
-            text-align: center;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-        }
+  .section-bg-magic .section-title { color: white; }
 
-        .about-section h2 {
-            color: var(--secondary-color);
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-        }
+  .section-title em {
+    color: var(--gold);
+    font-style: italic;
+  }
 
-        .about-section .author-name {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
+  .section-divider {
+    width: 160px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    margin: 20px auto 0;
+  }
 
-        .about-section .author-title {
-            color: var(--secondary-color);
-            font-weight: 600;
-            margin-bottom: 20px;
-        }
+  /* ✦ GRID DE DESEJOS ✦ */
+  .wishes-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+  }
 
-        .about-section p {
-            margin-bottom: 15px;
-            line-height: 1.8;
-        }
+  .wish-card {
+    background: white;
+    border-radius: 2px;
+    padding: 28px 28px 24px;
+    border-left: 3px solid var(--gold);
+    box-shadow: 0 2px 20px rgba(42,31,20,0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
 
-        .contact-link {
-            display: inline-block;
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 600;
-            padding: 10px 20px;
-            border-radius: 25px;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            transition: all 0.3s ease;
-            margin-top: 10px;
-        }
+  .wish-card::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 60px; height: 60px;
+    background: radial-gradient(circle at 100% 0%, rgba(201,168,76,0.08) 0%, transparent 70%);
+  }
 
-        .contact-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(91, 58, 112, 0.3);
-        }
+  .wish-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(42,31,20,0.12);
+  }
 
-        /* Footer */
-        .footer {
-            background: linear-gradient(135deg, #1F3A5F 0%, #5B3A70 100%);
-            color: var(--white);
-            padding: 30px 40px;
-            text-align: center;
-            font-size: 0.95rem;
-        }
+  .wish-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: rgba(201,168,76,0.2);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
 
-        .footer p {
-            margin-bottom: 10px;
-        }
+  .wish-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.4;
+    margin-bottom: 10px;
+  }
 
-        .footer-heart {
-            color: var(--accent-color);
-            margin: 0 5px;
-        }
+  .wish-desc {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    line-height: 1.7;
+  }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2rem;
-            }
+  /* Desejos especiais com destaque */
+  .wish-card.featured {
+    background: linear-gradient(135deg, #fdf3d0 0%, #fdf8ee 100%);
+    border-left-color: var(--rose-deep);
+  }
 
-            .header p {
-                font-size: 1.1rem;
-            }
+  .wish-card.featured .wish-number { color: rgba(196,96,122,0.2); }
 
-            .content {
-                padding: 30px 20px;
-            }
+  /* ✦ CHÁ DO PANO ✦ */
+  .cha-section {
+    background: linear-gradient(160deg, #1a0f30 0%, #2d1a4a 60%, #1e1035 100%);
+    color: white;
+    padding: 80px 20px;
+    position: relative;
+    overflow: hidden;
+  }
 
-            .clause-card {
-                padding: 20px;
-            }
+  .cha-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 10% 50%, rgba(90,158,124,0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at 90% 30%, rgba(201,168,76,0.08) 0%, transparent 40%);
+    pointer-events: none;
+  }
 
-            .button-group {
-                flex-direction: column;
-            }
+  .cha-header {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 1;
+  }
 
-            .btn {
-                width: 100%;
-                justify-content: center;
-            }
+  .cha-after-label {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1rem;
+    color: var(--gold-light);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 12px;
+    opacity: 0.7;
+  }
 
-            .clause-card h2 {
-                font-size: 1.2rem;
-            }
+  .cha-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: white;
+    font-style: italic;
+  }
 
-            .about-section {
-                padding: 25px;
-            }
-        }
+  .cha-icon {
+    font-size: 3rem;
+    display: block;
+    margin: 16px 0;
+    animation: fairyFloat 4s ease-in-out infinite;
+  }
 
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+  .cha-poem {
+    max-width: 560px;
+    margin: 0 auto 60px;
+    text-align: center;
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: rgba(253,243,208,0.85);
+    position: relative;
+    z-index: 1;
+  }
 
-        .clause-card {
-            animation: fadeInUp 0.6s ease forwards;
-        }
+  .cha-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+  }
 
-        .clause-card:nth-child(1) { animation-delay: 0.1s; }
-        .clause-card:nth-child(2) { animation-delay: 0.2s; }
-        .clause-card:nth-child(3) { animation-delay: 0.3s; }
-        .clause-card:nth-child(4) { animation-delay: 0.4s; }
-        .clause-card:nth-child(5) { animation-delay: 0.5s; }
+  .cha-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 2px;
+    padding: 24px;
+    transition: background 0.3s ease, border-color 0.3s ease;
+  }
 
-        /* PDF Export Styles */
-        @media print {
-            body {
-                background: none;
-                padding: 0;
-            }
-            .container {
-                box-shadow: none;
-                border-radius: 0;
-            }
-            .btn {
-                display: none;
-            }
-        }
-    </style>
+  .cha-card:hover {
+    background: rgba(201,168,76,0.08);
+    border-color: rgba(201,168,76,0.4);
+  }
+
+  .cha-card-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--gold);
+    opacity: 0.5;
+    margin-bottom: 6px;
+  }
+
+  .cha-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--gold-light);
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+
+  .cha-card-desc {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.6;
+  }
+
+  /* ✦ CLAUSULA ESPECIAL ✦ */
+  .special-clause {
+    max-width: 700px;
+    margin: 60px auto 0;
+    background: rgba(201,168,76,0.08);
+    border: 1px solid rgba(201,168,76,0.3);
+    padding: 40px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .special-clause h3 {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--gold-light);
+    margin-bottom: 16px;
+  }
+
+  .special-clause p {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.8;
+  }
+
+  /* ✦ FINAL ✦ */
+  .finale {
+    background: linear-gradient(180deg, var(--warm-white) 0%, var(--cream) 100%);
+    text-align: center;
+    padding: 100px 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .finale-poem {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    line-height: 2;
+    color: var(--ink);
+    max-width: 500px;
+    margin: 0 auto 48px;
+  }
+
+  .finale-poem strong {
+    font-size: 1.4em;
+    color: var(--rose-deep);
+    display: block;
+    margin-top: 8px;
+  }
+
+  .finale-date {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.1rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    margin-bottom: 48px;
+  }
+
+  /* ✦ NOTA SOBRE O PÓ ✦ */
+  .nota-section {
+    background: var(--ink);
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .nota-inner {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .nota-label {
+    font-family: 'Dancing Script', cursive;
+    color: var(--gold-light);
+    font-size: 1rem;
+    letter-spacing: 0.15em;
+    display: block;
+    margin-bottom: 24px;
+  }
+
+  .nota-text {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 40px;
+  }
+
+  .nota-call {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: white;
+    line-height: 1.8;
+    margin-bottom: 24px;
+  }
+
+  .nota-final {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.3rem;
+    color: var(--gold-light);
+    font-weight: 600;
+  }
+
+  /* ✦ AUTOR ✦ */
+  .autor {
+    background: var(--cream);
+    padding: 60px 20px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .autor-inner {
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .autor-label {
+    font-family: 'Dancing Script', cursive;
+    font-size: 0.9rem;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .autor-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 20px;
+  }
+
+  .autor-bio {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    line-height: 1.8;
+  }
+
+  /* ✦ ANIMAÇÕES ✦ */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Stagger para cards */
+  .wish-card:nth-child(1) { transition-delay: 0.05s; }
+  .wish-card:nth-child(2) { transition-delay: 0.1s; }
+  .wish-card:nth-child(3) { transition-delay: 0.15s; }
+  .wish-card:nth-child(4) { transition-delay: 0.2s; }
+  .wish-card:nth-child(5) { transition-delay: 0.25s; }
+  .wish-card:nth-child(6) { transition-delay: 0.3s; }
+
+  /* ✦ FLOATERS DECORATIVOS ✦ */
+  .floater {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0.15;
+    font-size: 5rem;
+    color: var(--gold);
+    animation: slowSpin 20s linear infinite;
+  }
+
+  @keyframes slowSpin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+
+  /* ✦ RESPONSIVO ✦ */
+  @media (max-width: 600px) {
+    .intro-card { padding: 32px 24px; }
+    .wishes-grid { grid-template-columns: 1fr; }
+    .cha-grid { grid-template-columns: 1fr; }
+    .special-clause { padding: 28px 20px; }
+  }
+</style>
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <div class="header">
-            <div class="header-content">
-                <div class="heart-icon">💙</div>
-                <h1>Estatuto da Mulher Brasileira</h1>
-                <p>Um Manifesto Poético</p>
-                <div class="header-subtitle">⭐ Lei do Amor e da Dignidade ⭐</div>
-                <div class="button-group">
-                    <button class="btn btn-whatsapp" onclick="shareWhatsApp()">💬 Compartilhar no WhatsApp</button>
-                </div>
-            </div>
-        </div>
 
-        <!-- Content -->
-        <div class="content" id="pdf-content">
-            <!-- Clause 1 -->
-            <div class="clause-card">
-                <div class="clause-number">1</div>
-                <h2><span class="clause-icon">👑</span> Da Soberania e Dignidade</h2>
-                <p>Fica decretado que toda mulher é um país inteiro: com rios de memória, serras de coragem e uma bandeira invisível onde se lê: dignidade. Nenhuma mulher nascerá para ser apagada — nem pelo medo, nem pelo silêncio, nem pela conveniência alheia.</p>
-            </div>
+<canvas id="fairy-canvas"></canvas>
 
-            <!-- Clause 2 -->
-            <div class="clause-card">
-                <div class="clause-number">2</div>
-                <h2><span class="clause-icon">🌟</span> Da Vida Inteira</h2>
-                <p>Fica decretado que o Brasil não aceitará como "normal" o que é crime e vergonha: o feminicídio. Que cada mulher viva — e viva inteira.</p>
-            </div>
+<!-- ✦ HERO ✦ -->
+<section class="hero">
+  <div class="moon"></div>
+  <span class="fairy-icon">🧚‍♀️</span>
+  <span class="hero-tagline">Edição especial — 8 de Março</span>
+  <h1 class="hero-title">O <span>Pó de<br>Pirlimpimpim</span></h1>
+  <div class="hero-divider"></div>
+  <p class="hero-subtitle">Para quem já faz milagre todo dia — com ou sem magia, com ou sem ajuda, com ou sem reconhecimento.</p>
+  <div class="scroll-hint">↓ vem comigo</div>
+</section>
 
-            <!-- Clause 3 -->
-            <div class="clause-card">
-                <div class="clause-number">3</div>
-                <h2><span class="clause-icon">🤝</span> Da Prioridade Histórica</h2>
-                <p>Fica decretado que as mulheres mais vulnerabilizadas não serão deixadas por último. Mulheres negras, obesas, LGBTQIA+, indígenas, nordestinas e todas as que carregam os alvos do preconceito terão proteção real, escuta séria e justiça rápida.</p>
-            </div>
+<!-- ✦ INTRO ✦ -->
+<section class="intro-section">
+  <div class="intro-card reveal">
+    <p>
+      Toda mulher tem direito a um saquinho de pó de pirlimpimpim<br>
+      com <strong>12 doses</strong> — uma por mês, a ser usado com muita maestria.<br>
+      O saquinho é <strong>renovável a cada 5 anos</strong>.<br>
+      As situações permitidas são as seguintes:
+    </p>
+  </div>
+</section>
 
-            <!-- Clause 4 -->
-            <div class="clause-card">
-                <div class="clause-number">4</div>
-                <h2><span class="clause-icon">♿</span> Da Mulher com Deficiência</h2>
-                <p>Fica decretado que a mulher com deficiência não carrega dupla invisibilidade: ela existe, é inteira, tem desejos, projetos e voz — e não precisa da aprovação de ninguém para comprová-lo. Que o sistema de saúde, o mercado de trabalho e os espaços públicos se adaptem a ela — e não o contrário. Acessibilidade não é favor: é direito fundamental.</p>
-            </div>
+<!-- ✦ DESEJOS ✦ -->
+<section class="section section-bg-white">
+  <div class="section-header reveal">
+    <span class="section-label">✦ as doze doses ✦</span>
+    <h2 class="section-title">O que o <em>pó pode fazer</em></h2>
+    <div class="section-divider"></div>
+  </div>
 
-            <!-- Clause 5 -->
-            <div class="clause-card">
-                <div class="clause-number">5</div>
-                <h2><span class="clause-icon">✨</span> Da Extinção dos Estereótipos</h2>
-                <p>Fica extinta a frase "isso é coisa de homem". Ficam canceladas as ordens de "tenha postura" ou "se dê ao respeito". A liberdade não é falta; o julgamento alheio não é polícia. Ninguém será humilhada por existir fora de um padrão.</p>
-            </div>
+  <div class="wishes-grid">
 
-            <!-- Clause 6 -->
-            <div class="clause-card">
-                <div class="clause-number">6</div>
-                <h2><span class="clause-icon">🚶‍♀️</span> Do Consentimento e da Rua</h2>
-                <p>Fica decretado — e que ninguém finja não entender — que <strong>Não é Não</strong>. Roupa não é convite, pele não é permissão, corpo não é vitrine. O olhar aprenderá educação e a rua será lugar de passagem — não de caça.</p>
-            </div>
-
-            <!-- Clause 7 -->
-            <div class="clause-card">
-                <div class="clause-number">7</div>
-                <h2><span class="clause-icon">📱</span> Do Mundo Digital</h2>
-                <p>Fica decretado que a violência não termina onde termina a calçada. Revenge porn, stalking virtual, imagens vazadas como punição, ameaças no direct — tudo isso é crime, não é "briga de casal", não é "consequência" e jamais será "culpa dela". O celular não é território sem lei. A dignidade da mulher não tem endereço IP.</p>
-            </div>
-
-            <!-- Clause 8 -->
-            <div class="clause-card">
-                <div class="clause-number">8</div>
-                <h2><span class="clause-icon">💪</span> Da Humanidade e do Temperamento</h2>
-                <p>Fica decretado que toda mulher tem o direito de não ser a "menina boazinha". Tem direito a ter suas prelatices, a estar de mau humor na TPM e a frequentar qualquer roda de conversa sem ser fuzilada por olhares ou importunada.</p>
-            </div>
-
-            <!-- Clause 9 -->
-            <div class="clause-card">
-                <div class="clause-number">9</div>
-                <h2><span class="clause-icon">🎤</span> Da Voz que Não Pode Ser Interrompida</h2>
-                <p>Fica decretado o fim do mansplaining — esse hábito refinado de explicar para a mulher o que ela já sabe melhor que ninguém. A ideia dela não será roubada na reunião, seu raciocínio não será cortado no meio e sua competência não precisará de chancela masculina para existir. Quando ela fala, a sala escuta.</p>
-            </div>
-
-            <!-- Clause 10 -->
-            <div class="clause-card">
-                <div class="clause-number">10</div>
-                <h2><span class="clause-icon">😴</span> Do Fim da Mulher-Maravilha</h2>
-                <p>Fica proibido romantizar a <strong>sobrecarga feminina</strong> chamando opressão de "resiliência". Fica abolida a obrigação de ser heroína. Toda mulher tem direito a um sábado sem faxina e ao descanso sem o chicote da culpa.</p>
-            </div>
-
-            <!-- Clause 11 -->
-            <div class="clause-card">
-                <div class="clause-number">11</div>
-                <h2><span class="clause-icon">❤️‍🩹</span> Da Dor que Não Foi Acreditada</h2>
-                <p>Fica decretado que a dor da mulher não precisa de testemunha para ser real. Endometriose diagnosticada com anos de atraso, menopausa tratada como vergonha, sintomas descritos como "frescura" — tudo isso acaba. O sistema de saúde aprenderá, de uma vez por todas, a ouvir antes de minimizar. O corpo feminino não é campo de hipóteses: é território de vida.</p>
-            </div>
-
-            <!-- Clause 12 -->
-            <div class="clause-card">
-                <div class="clause-number">12</div>
-                <h2><span class="clause-icon">🌹</span> Do Prazer</h2>
-                <p>Fica decretado que o prazer feminino existe, é legítimo e não precisa de justificativa, de silêncio nem de permissão. Por séculos foi proibido, patologizado ou colocado inteiramente a serviço do outro. Acabou. Envergonhar uma mulher por desejá-lo é uma forma refinada de violência — e será tratada como tal.</p>
-            </div>
-
-            <!-- Special Clause - Motherhood -->
-            <div class="clause-card special-clause">
-                <div class="clause-number" style="background: linear-gradient(135deg, #5B3A70 0%, #D4AF37 100%); color: var(--white);">CP</div>
-                <h2><span class="clause-icon">👶</span> Cláusula Pétrea: Da Maternidade e do Arbítrio</h2>
-                <p>Fica decretado, de forma irrevogável, que toda mulher e mãe tem direito a condições dignas para criar seus filhos. Mas fica também decretado o seu direito de sair do papel de mãe vez por outra, para ser apenas mulher. E que o desejo de não ser mãe seja respeitado como escolha legítima: ninguém nasce com destino biológico obrigatório. E está tudo bem.</p>
-            </div>
-
-            <!-- Special Clause - Colors -->
-            <div class="clause-card special-clause">
-                <h2><span class="clause-icon">🎨</span> Cláusula Especial: Azul Também é Cor de Mulher</h2>
-                <p><strong>Fica decretado que azul também é cor de mulher</strong>, e toda menina tem direito a brincar com as mesmas coisas dos meninos, inclusive jogar futebol na quadra perto de casa.</p>
-                <p style="margin-top: 15px;"><strong>E o rosa é deles também</strong>, assim como os brinquedos dela! Cores não têm gênero, brincadeiras não têm dono. O que importa é a felicidade de ser criança, sem correntes de "coisa de menino" ou "coisa de menina".</p>
-                <p style="margin-top: 15px; font-weight: 600; color: var(--secondary-color);">💙 Azul é delas. 🌸 Rosa é deles. E tudo é de todos!</p>
-            </div>
-
-            <!-- Decree - Relationships -->
-            <div class="clause-card special-clause">
-                <h2><span class="clause-icon">💕</span> Decreto Especial: Do Fim das Relações Amorosas</h2>
-                <p>Fica decretado que em toda relação amorosa toda mulher tem direito a sair dela, sem ser ameaçada, a hora e o momento em que quiser.</p>
-                <p style="margin-top: 15px;">Não sofrerá qualquer tipo de <strong>chantagem, violência, coação ou opressão</strong>. O fim do amor não pode ser o começo do medo. O adeus não pode ser uma sentença.</p>
-                <p style="margin-top: 15px; font-weight: 600; color: var(--secondary-color);">Ir embora é direito. Ficar é escolha. E nenhuma escolha pode custar a vida.</p>
-            </div>
-
-            <!-- Clause 13 -->
-            <div class="clause-card">
-                <div class="clause-number">13</div>
-                <h2><span class="clause-icon">🤗</span> Da Sororidade</h2>
-                <p>Fica decretado que mulher que apoia mulher não é ingênua: é sábia. A amizade feminina é uma das forças mais antigas e subestimadas da história. Fica extinta a rivalidade fabricada entre elas — que serve apenas a quem quer que permaneçam divididas. Quando uma sobe, não empurra a outra para baixo: abre a porta e segura.</p>
-            </div>
-
-            <!-- Clause 14 -->
-            <div class="clause-card">
-                <div class="clause-number">14</div>
-                <h2><span class="clause-icon">💼</span> Do Trabalho e da Autonomia</h2>
-                <p>Fica decretado que trabalho igual terá salário igual. A competência não será porta de entrada para a humilhação, e o corpo da mulher nunca será pedágio para sua permanência no emprego.</p>
-            </div>
-
-            <!-- Clause 15 -->
-            <div class="clause-card">
-                <div class="clause-number">15</div>
-                <h2><span class="clause-icon">🚀</span> Do Sonho Sem Peito</h2>
-                <p>Fica decretado que ambição não tem gênero e liderança não tem dono. Mulher que quer poder não assusta — inspira. Nenhuma mulher precisará mais escolher entre ser respeitada e ser amada por querer ocupar o espaço que conquistou. O teto de vidro não é natural: é construção humana. E o que o ser humano construiu, o ser humano destrói.</p>
-            </div>
-
-            <!-- Clause 16 -->
-            <div class="clause-card">
-                <div class="clause-number">16</div>
-                <h2><span class="clause-icon">🏠</span> Da Gestão do Lar e dos Afetos</h2>
-                <p>Fica decretado que "ajudar em casa" sai do dicionário. Não é ajuda que se fornece, é parceria, é envolvimento com o lar, numa postura de cooperação mútua. Ajuda se dá quando se quer. E a mulher no lar não precisa de caridade pra manter as coisas funcionando. A maternidade não será solidão. Lar é onde ela respira sem medo — seja com uma família barulhenta ou apenas com ela mesma e a sua paz.</p>
-            </div>
-
-            <!-- Clause 17 -->
-            <div class="clause-card">
-                <div class="clause-number">17</div>
-                <h2><span class="clause-icon">👵</span> Da "Longelescência" e do Tempo</h2>
-                <p>Fica decretado que cabelos brancos são coroa de tempo e rugas são mapas de vida. Envelhecer é vitória. Toda mulher longeva tem direito a um desconto generoso no salão pela fidelidade de décadas e ao respeito absoluto pela sua história.</p>
-            </div>
-
-            <!-- Special Clause - Longeva -->
-            <div class="clause-card special-clause">
-                <div class="clause-number" style="background: linear-gradient(135deg, #5B3A70 0%, #D4AF37 100%); color: var(--white);">60+</div>
-                <h2><span class="clause-icon">💜</span> Cláusula Especial: Da Mulher Longeva</h2>
-                <p>Fica decretado que a mulher com 60 anos ou mais não será apagada — nem da conversa, nem da tela, nem da mesa de reuniões. Ela não envelheceu: ela acumulou. Cada ano vivido é experiência que nenhum algoritmo de contratação tem competência para descartar.</p>
-                <p style="margin-top: 15px;">Fica proibido ao mercado de trabalho tratar a mulher longeva como prazo de validade vencido. Sua presença profissional não é favor — é patrimônio. Fica decretado que ela tem direito a recolocação, requalificação e reconhecimento sem ter que fingir que tem trinta anos para ser levada a sério.</p>
-                <p style="margin-top: 15px;">Fica decretado o fim da solidão estrutural — essa que não vem da ausência de gente ao redor, mas da ausência de escuta, de pertencimento, de espaço. A mulher longeva não será relegada à poltrona da sala de espera da vida. Ela ocupa centro de palco, se quiser.</p>
-                <p style="margin-top: 15px;">Fica também decretado, em caráter irrevogável e com afeto, que toda mulher longeva tem direito ao fim de semana de não-vó-filhos: sem neto para buscar, sem filho para resolver, sem agenda de todo mundo menos a dela. Um fim de semana inteiro para ser apenas ela — viajando, dormindo até tarde, assistindo ao que quiser, saindo sem dar satisfação a ninguém.</p>
-                <p style="margin-top: 15px; font-weight: 600; color: var(--secondary-color);">A Longelescência não é o fim da história. É o capítulo mais livre que ela já escreveu. 💜</p>
-            </div>
-
-            <!-- Clause 18 -->
-            <div class="clause-card">
-                <div class="clause-number">18</div>
-                <h2><span class="clause-icon">🌍</span> Do Futuro e da Prática</h2>
-                <p>Este estatuto não precisa de carimbo, mas de educação e leis que funcionem. Que toda menina cresça sabendo que liberdade não é atrevimento: é direito.</p>
-                <p style="margin-top: 15px;"><strong>E que se cumpra. No agora. No cotidiano. Na vida real.</strong></p>
-            </div>
-
-            <!-- Inciso 3 -->
-            <div class="clause-card special-clause">
-                <h2><span class="clause-icon">✨</span> Inciso 3: Do Pó de Pirlimpimpim</h2>
-                <p><strong>O que é o Pó de Pirlimpimpim?</strong></p>
-                <p style="margin-top: 15px;">O Pó de Pirlimpimpim é uma das criações mais encantadas da literatura brasileira. Monteiro Lobato o inventou para o Sítio do Pica-Pau Amarelo: um pó mágico que, jogado ao vento, transportava seus personagens para qualquer lugar do mundo — real ou imaginário.</p>
-                <p style="margin-top: 15px;">Lobato bebeu na fonte de Peter Pan: a Fada Sininho, de J. M. Barrie, usava seu pó de fada para fazer Wendy e os meninos voarem em direção à Terra do Nunca. Da Fada Sininho ao Sítio do Pica-Pau Amarelo, o pó atravessou o Atlântico e ganhou alma brasileira.</p>
-                <p style="margin-top: 15px;">E aqui, neste Estatuto, ele ganha um novo destino: pertence a toda mulher — porque se alguém merece um pouco de magia do lado, essa alguém é ela. 💫</p>
-                <p style="margin-top: 15px;"><strong>Toda mulher tem direito a um pó de pirlimpimpim que poderá ser usado uma vez por mês nas seguintes situações:</strong></p>
-                <div style="margin-top: 20px; padding: 20px; background: rgba(91, 58, 112, 0.05); border-radius: 10px;">
-                    <p>✨ Arrumar a cozinha com um passe de mágica</p>
-                    <p>🏝️ Passar duas horas sendo teletransportada para um lugar paradisíaco</p>
-                    <p>👗 Se perceber como a mais bela do pedaço e ir pra algum evento chique com a roupa que tem</p>
-                    <p>🚫 Se livrar de homem besta</p>
-                    <p>🍰 Perder peso comendo docinhos</p>
-                    <p>🌸 Ganhar flores ou chocolates por reconhecimentos do esforço cotidianos</p>
-                    <p>💆 Esquecer por 10 minutos todo mundo que depende dela e se cuidar</p>
-                    <p>👁️ Eliminar assediadores num piscar de olhos</p>
-                    <p>🤐 Calar a boca e o gesto de uma chefia machista</p>
-                    <p>😴 Fazer desaparecer por 5 minutos cônjuges rabugentos e reclamões</p>
-                    <p>🌙 Dormir uma noite inteira, quando tem filho bebê, e ele não acordar e amanhecer super saudável e nutrido</p>
-                    <p>💰 Achar dinheiro perdido em bolsa antiga ou naquela roupa que foi a uma festa há anos</p>
-                    <p>💫 Mudar algo na estética do corpo, e em definitivo</p>
-                    <p>🌹 Acordar querendo "mandar flores para o delegado". Entendedores, entenderão</p>
-                    <p>🎉 Não ser esquecida "num pano de guardar confetes", após um "date" bacana</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- About Section -->
-        <div class="about-section">
-            <h2>👤 Sobre o Autor</h2>
-            <div class="author-name">Ricardo de Faria Barros</div>
-            <div class="author-title">Psicólogo-Consultor do Programa 70+ da ANABB</div>
-            <p>Autor deste manifesto poético em homenagem às mulheres que iluminam suas vidas e transformam o mundo com sua força, coragem e dignidade.</p>
-            <a href="mailto:ricardo@animodh.com.br" class="contact-link">📧 Contato: ricardo@animodh.com.br</a>
-        </div>
-
-        <!-- Footer -->
-        <div class="footer">
-            <p>© 2026 Manifesto Poético • Feito com <span class="footer-heart">💙</span> <span class="footer-heart">🌸</span> e muito respeito</p>
-            <p>Por Ricardo de Faria Barros</p>
-            <p>Psicólogo-Consultor do Programa 70+ da ANABB</p>
-            <p><a href="mailto:ricardo@animodh.com.br" style="color: var(--accent-color); text-decoration: none;">ricardo@animodh.com.br</a></p>
-        </div>
+    <div class="wish-card reveal">
+      <div class="wish-number">01</div>
+      <div class="wish-title">Arrumar a cozinha com um passe de mágica</div>
+      <div class="wish-desc">Porque ela não precisa de mais um milagre. Já faz um por dia.</div>
     </div>
 
-    <script>
-        function shareWhatsApp() {
-            const text = encodeURIComponent('Confira o Estatuto da Mulher Brasileira - Um Manifesto Poético sobre dignidade, direitos e força feminina! 💙');
-            const url = `https://wa.me/?text=${text}`;
-            window.open(url, '_blank');
-        }
-    </script>
+    <div class="wish-card reveal">
+      <div class="wish-number">02</div>
+      <div class="wish-title">Passar duas horas sendo teletransportada para um lugar paradisíaco</div>
+      <div class="wish-desc">Sozinha, ou na companhia que escolher. Com direito a coquetel, vista pro mar e sem ninguém perguntando onde está o carregador do celular.</div>
+    </div>
+
+    <div class="wish-card featured reveal">
+      <div class="wish-number">03</div>
+      <div class="wish-title">Se perceber como a mais bela do pedaço</div>
+      <div class="wish-desc">Porque o problema nunca foi o guarda-roupa. Foi o espelho que alguém foi enchendo de mentiras ao longo dos anos.</div>
+    </div>
+
+    <div class="wish-card reveal">
+      <div class="wish-number">04</div>
+      <div class="wish-title">Se livrar de homem besta</div>
+      <div class="wish-desc">Sem explicação, sem culpa, sem aquela conversa que ela já sabe de cor antes de começar.</div>
+    </div>
+
+    <div class="wish-card reveal">
+      <div class="wish-number">05</div>
+      <div class="wish-title">Perder peso comendo docinhos</div>
+      <div class="wish-desc">Porque a injustiça metabólica é real, é documentada e merece ser processada com brigadeiro.</div>
+    </div>
+
+    <div class="wish-card featured reveal">
+      <div class="wish-number">06</div>
+      <div class="wish-title">Ganhar flores por reconhecimento cotidiano</div>
+      <div class="wish-desc">Não no aniversário. Numa terça-feira comum, depois de mais um dia invisível de entregas visíveis.</div>
+    </div>
+
+    <div class="wish-card reveal">
+      <div class="wish-number">07</div>
+      <div class="wish-title">Esquecer por 10 minutos todo mundo que depende dela</div>
+      <div class="wish-desc">Dez minutos inteiros. Sem culpa. Sem checklist mental. Sem ninguém aparecendo na porta do banheiro.</div>
+    </div>
+
+    <div class="wish-card reveal">
+      <div class="wish-number">08</div>
+      <div class="wish-title">Eliminar assediadores num piscar de olhos</div>
+      <div class="wish-desc">Porque o olhar dela não é um convite. E ela já teve que explicar isso de formas demais, por tempo de mais.</div>
+    </div>
+
+    <div class="wish-card featured reveal">
+      <div class="wish-number">09</div>
+      <div class="wish-title">Calar a boca e o gesto de uma chefia machista</div>
+      <div class="wish-desc">Aquele que interrompe, que diminui, que rouba a ideia e apresenta como própria na reunião. Esse aí. Silêncio total.</div>
+    </div>
+
+    <div class="wish-card reveal">
+      <div class="wish-number">10</div>
+      <div class="wish-title">Fazer desaparecer cônjuges rabugentos por 5 minutos</div>
+      <div class="wish-desc">Só cinco minutinhos. Para ela respirar, se lembrar de quem é, e decidir com tranquilidade se quer que ele volte.</div>
+    </div>
+
+    <div class="wish-card reveal">
+      <div class="wish-number">11</div>
+      <div class="wish-title">Dormir uma noite inteira com filho bebê</div>
+      <div class="wish-desc">Porque privação de sono deveria ser listada como esporte de alto risco. E ela merece medalha olímpica.</div>
+    </div>
+
+    <div class="wish-card featured reveal">
+      <div class="wish-number">12</div>
+      <div class="wish-title">Achar dinheiro perdido em bolsa antiga</div>
+      <div class="wish-desc">O universo devolvendo, com juros modestos, um pouco do que ela deu sem esperar receber.</div>
+    </div>
+
+    <div class="wish-card reveal">
+      <div class="wish-number">13</div>
+      <div class="wish-title">Mudar algo na estética do corpo, em definitivo</div>
+      <div class="wish-desc">Aquilo que ela olha há anos e que não é frescura, não é vaidade. É dela. E ela pode querer mudar.</div>
+    </div>
+
+    <div class="wish-card reveal">
+      <div class="wish-number">14</div>
+      <div class="wish-title">Acordar querendo "mandar flores para o delegado"</div>
+      <div class="wish-desc">Entendedoras, entenderão. E as que ainda não entenderam — um dia vão entender, e vão rir muito.</div>
+    </div>
+
+    <div class="wish-card featured reveal">
+      <div class="wish-number">15</div>
+      <div class="wish-title">Não ser esquecida num pano de guardar confetes</div>
+      <div class="wish-desc">Porque ela não é confete. <em>Ela é o baile inteiro.</em></div>
+    </div>
+
+    <div class="wish-card reveal">
+      <div class="wish-number">16</div>
+      <div class="wish-title">Terminar as unhas e elas secarem perfeitas</div>
+      <div class="wish-desc">Sem borrar, sem marcar. Uma vez. Só uma. Sem aquele momento de tragédia grega dois minutos depois.</div>
+    </div>
+
+    <div class="wish-card reveal">
+      <div class="wish-number">17</div>
+      <div class="wish-title">Ser levada a sério numa reunião sem elevar o tom</div>
+      <div class="wish-desc">E não ouvir depois que estava sendo "emotiva" por simplesmente ter uma opinião e defendê-la.</div>
+    </div>
+
+    <div class="wish-card featured reveal">
+      <div class="wish-number">18</div>
+      <div class="wish-title">Igualar os salários com um único sopro</div>
+      <div class="wish-desc">Sem RH. Sem "vamos avaliar no ciclo". Um sopro. Pronto. Equidade. <em>Como deveria ter sido desde o primeiro dia.</em></div>
+    </div>
+
+    <div class="wish-card reveal">
+      <div class="wish-number">19</div>
+      <div class="wish-title">O direito à palavra — sempre, em qualquer sala</div>
+      <div class="wish-desc">Quando ela abre a boca, a sala escuta — porque ela sempre mereceu ser ouvida.</div>
+    </div>
+
+    <div class="wish-card reveal">
+      <div class="wish-number">20</div>
+      <div class="wish-title">Encontrar uma calça jeans que serve direitinho</div>
+      <div class="wish-desc">Na cintura, no quadril, no comprimento, sem aquele buraco nas costas desenhado para humilhar. Entendedoras, entenderão muito.</div>
+    </div>
+
+    <div class="wish-card reveal">
+      <div class="wish-number">21</div>
+      <div class="wish-title">Que a depilação não doa e a cor não desbote</div>
+      <div class="wish-desc">Porque nenhum ser humano deveria agendar sofrimento quinzenal, pagar por ele sorrindo e ainda agradecer no final.</div>
+    </div>
+
+    <div class="wish-card featured reveal">
+      <div class="wish-number">22</div>
+      <div class="wish-title">O cabelo não cair</div>
+      <div class="wish-desc">Porque mulher tem noite com cabelo caindo. Aquele ralo entupido, o susto no travesseiro. Que ele fique. Todo ele. No lugar certo.</div>
+    </div>
+
+    <div class="wish-card reveal">
+      <div class="wish-number">23</div>
+      <div class="wish-title">Ficar na festa apenas comendo e se divertindo</div>
+      <div class="wish-desc">Como muitos machos folgados fazem com maestria há séculos — sem produção, arrumação, limpeza ou logística. Só curtir.</div>
+    </div>
+
+    <div class="wish-card featured reveal">
+      <div class="wish-number">24</div>
+      <div class="wish-title">Quando exausta — receber sem precisar pedir</div>
+      <div class="wish-desc">Uma massagem sem aviso. Um chá na hora certa. O canto dos pássaros, a lua cheia, o sol nascendo sem pressa e sem culpa.</div>
+    </div>
+
+    <div class="wish-card reveal" style="border-left-color: var(--magic-blue);">
+      <div class="wish-number">25</div>
+      <div class="wish-title">Congelar todo preconceito com um gesto</div>
+      <div class="wish-desc">Por ser mulher. Por ser negra. Por ser obesa. Por existir de um jeito que incomoda quem não sabe existir do próprio jeito. <em>Um gesto. Silêncio. Gelo.</em></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ✦ CHÁ DO PANO ✦ -->
+<section class="cha-section">
+  <div class="cha-header reveal">
+    <span class="cha-after-label">✦ após as 12 doses ✦</span>
+    <h2 class="cha-title">🍵 O Chá do Pano</h2>
+  </div>
+
+  <div class="cha-poem reveal">
+    Quando as 12 doses acabam, o pano guarda o rastro<br>
+    de tudo que passou por ele —<br>
+    cristais invisíveis de pó incrustados na trama do tecido.<br>
+    Escalde-o em água quente, deixe repousar três minutos<br>
+    e beba com calma e fé.<br><br>
+    <em>O chá que resulta tem poderes próprios —<br>
+    mais cotidianos, igualmente milagrosos.</em>
+  </div>
+
+  <div class="cha-grid">
+
+    <div class="cha-card reveal">
+      <div class="cha-card-number">1</div>
+      <div class="cha-card-title">O pneu furado voltar a subir sozinho</div>
+      <div class="cha-card-desc">Um gole — e o pneu sobe, firme. Porque ela não tem tempo pra isso hoje.</div>
+    </div>
+
+    <div class="cha-card reveal">
+      <div class="cha-card-number">2</div>
+      <div class="cha-card-title">Sumir de assaltantes que vêm em sua direção</div>
+      <div class="cha-card-desc">Invisibilidade imediata, seletiva e temporária. Proteção não é frescura, é direito.</div>
+    </div>
+
+    <div class="cha-card reveal">
+      <div class="cha-card-number">3</div>
+      <div class="cha-card-title">Organizar a cabeça em listas realmente factíveis</div>
+      <div class="cha-card-desc">Não aquelas listas de 47 itens às 23h. Listas que respeitam o tempo, o corpo e a vida que ela vive.</div>
+    </div>
+
+    <div class="cha-card reveal">
+      <div class="cha-card-number">4</div>
+      <div class="cha-card-title">Achar a vaga perfeita quando atrasada</div>
+      <div class="cha-card-desc">Na frente. Do lado da calçada. Sem sol. Sem poste no caminho.</div>
+    </div>
+
+    <div class="cha-card reveal">
+      <div class="cha-card-number">5</div>
+      <div class="cha-card-title">Dar conta dos projetos escolares sem colapso</div>
+      <div class="cha-card-desc">A maquete do sistema solar pedida na sexta para segunda. O chá dá a energia, a paciência e a criatividade.</div>
+    </div>
+
+    <div class="cha-card reveal">
+      <div class="cha-card-number">6</div>
+      <div class="cha-card-title">Achar na promoção de 80% a roupa que cobiça</div>
+      <div class="cha-card-desc">No tamanho certo. Na cor certa. A última do estoque. Com frete grátis.</div>
+    </div>
+
+    <div class="cha-card reveal">
+      <div class="cha-card-number">7</div>
+      <div class="cha-card-title">Ter a balança e o espelho como amigos</div>
+      <div class="cha-card-desc">Não como juízes. Amigos que lembram que corpo não é projeto inacabado. É casa. É ela.</div>
+    </div>
+
+    <div class="cha-card reveal">
+      <div class="cha-card-number">8</div>
+      <div class="cha-card-title">Ser aceita quando sai para ver o filho na escola</div>
+      <div class="cha-card-desc">Só um "vai lá, manda vídeo!" — como deveria ser sempre.</div>
+    </div>
+
+    <div class="cha-card reveal">
+      <div class="cha-card-number">9</div>
+      <div class="cha-card-title">Tirar o filho da virose em tempo recorde</div>
+      <div class="cha-card-desc">Com toda a magia de mãe que já estava ali, no pano, esperando a hora de ser útil de novo.</div>
+    </div>
+
+  </div>
+
+  <div class="special-clause reveal">
+    <h3>✦ Cláusula Especial ✦</h3>
+    <p>
+      Parar o ciclo menstrual imediatamente. Sem qualquer traço visível ou invisível.
+      Porque existe um tipo de inconveniência que não tem dia certo pra chegar,
+      não pede licença, não respeita viagem, prova, entrevista, data especial, roupa branca nem humor.
+      <em>Toda mulher já sabe exatamente do que se trata.</em>
+    </p>
+  </div>
+
+  <p style="text-align:center; margin-top: 48px; font-family: 'Lora', serif; font-style: italic; color: rgba(253,243,208,0.6); position:relative; z-index:1;">
+    ☕ O Chá do Pano não tem bula. Não precisa.<br>
+    <em>Toda mulher que o prepara já sabe, na primeira xícara, exatamente o que ele veio curar.</em>
+  </p>
+</section>
+
+<!-- ✦ FINALE ✦ -->
+<section class="finale">
+  <div class="finale-poem reveal">
+    Parabéns, mulher.<br>
+    Por tudo que você carrega.<br>
+    Por tudo que você é.<br>
+    E por tudo que você ainda vai ser —
+    <strong>com ou sem pó de pirlimpimpim.</strong>
+  </div>
+  <div class="finale-date reveal">8 DE MARÇO — DIA INTERNACIONAL DAS MULHERES</div>
+</section>
+
+<!-- ✦ NOTA ✦ -->
+<section class="nota-section">
+  <div class="nota-inner">
+    <span class="nota-label">✦ nota sobre o pó ✦</span>
+    <p class="nota-text">
+      Criado por Monteiro Lobato para o Sítio do Pica-Pau Amarelo,
+      o pó de pirlimpimpim transportava personagens para qualquer lugar — real ou imaginário.
+      Lobato bebeu na fonte de J. M. Barrie, cuja Fada Sininho fazia Wendy e os meninos voarem
+      rumo à Terra do Nunca. Da Fada Sininho ao Sítio, o pó atravessou o Atlântico e ganhou alma brasileira.
+      Aqui, ganha um novo destino — e uma dona.
+    </p>
+    <p class="nota-call">
+      Cada um de nós — que juntos formamos a humanidade e o marco civilizatório —
+      pode ser esse pó de pirlimpimpim para as mulheres.
+      Assim como as políticas públicas e as instituições,
+      quando agem com parceria, justiça, ética, inclusão, respeito, amor e empatia.
+    </p>
+    <p class="nota-final">Não é magia. É escolha.</p>
+  </div>
+</section>
+
+<!-- ✦ AUTOR ✦ -->
+<footer class="autor">
+  <div class="autor-inner">
+    <span class="autor-label">sobre o autor</span>
+    <div class="autor-name">Ricardo de Faria Barros</div>
+    <p class="autor-bio">
+      Psicólogo, especialista em logoterapia e psicologia positiva.<br>
+      Mestre em Gestão Social e Trabalho.<br>
+      Escrevedor de besteirinhas em livros, sites e assemelhados.<br><br>
+      Pai de uma filha. Avô de duas netas.<br>
+      Sogro de duas noras. Tio de duas sobrinhas. Filho de uma mãe.<br><br>
+      <em>Ou seja: ele sabe muito bem do que está falando.</em>
+    </p>
+  </div>
+</footer>
+
+<script>
+// ✦ FAIRY DUST CANVAS ✦
+const canvas = document.getElementById('fairy-canvas');
+const ctx = canvas.getContext('2d');
+
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+const particles = [];
+const PARTICLE_COUNT = 80;
+
+class Particle {
+  constructor() { this.reset(true); }
+  reset(init = false) {
+    this.x = Math.random() * canvas.width;
+    this.y = init ? Math.random() * canvas.height : canvas.height + 10;
+    this.size = Math.random() * 3 + 1;
+    this.speedX = (Math.random() - 0.5) * 0.6;
+    this.speedY = -(Math.random() * 0.8 + 0.2);
+    this.opacity = Math.random() * 0.6 + 0.2;
+    this.hue = Math.random() > 0.5 ? 45 : (Math.random() > 0.5 ? 310 : 160);
+    this.twinkle = Math.random() * Math.PI * 2;
+    this.twinkleSpeed = Math.random() * 0.04 + 0.01;
+  }
+  update() {
+    this.x += this.speedX;
+    this.y += this.speedY;
+    this.twinkle += this.twinkleSpeed;
+    if (this.y < -10) this.reset();
+  }
+  draw() {
+    const alpha = this.opacity * (0.5 + 0.5 * Math.sin(this.twinkle));
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fillStyle = `hsla(${this.hue}, 90%, 75%, ${alpha})`;
+    ctx.fill();
+
+    // brilho
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size * 2.5, 0, Math.PI * 2);
+    ctx.fillStyle = `hsla(${this.hue}, 90%, 85%, ${alpha * 0.15})`;
+    ctx.fill();
+  }
+}
+
+for (let i = 0; i < PARTICLE_COUNT; i++) {
+  particles.push(new Particle());
+}
+
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  particles.forEach(p => { p.update(); p.draw(); });
+  requestAnimationFrame(animate);
+}
+animate();
+
+// ✦ CURSOR SPARKLE ✦
+document.addEventListener('mousemove', (e) => {
+  if (Math.random() > 0.7) {
+    const p = new Particle();
+    p.x = e.clientX;
+    p.y = e.clientY;
+    p.size = Math.random() * 2.5 + 0.5;
+    p.speedY = -(Math.random() * 1 + 0.5);
+    p.speedX = (Math.random() - 0.5) * 1.2;
+    particles.push(p);
+    if (particles.length > PARTICLE_COUNT + 40) particles.splice(0, 1);
+  }
+});
+
+// ✦ REVEAL ON SCROLL ✦
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+reveals.forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
